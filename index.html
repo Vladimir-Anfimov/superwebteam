@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unemployment</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar-element" class="sidebar">
+        <img class="sidebar-close" src="./resources/close.png" alt="close">
+        <img class="sidebar-logo" src="resources/logo.png" alt="logo">
+        <ul>
+            <li><img src="./resources/house.png" alt="house">Get Started</li>
+            <li><img src="./resources/magnifying-glass.png" alt="house">Discover</li>
+            <li><img src="./resources/user.png" alt="house">Profile</li>
+            <li><img src="./resources/logout.png" alt="house">Logout</li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <main>
+        <div class="navbar">
+            <img id="burger-icon" src="resources/burger.png" alt="burger-menu" class="mobile-burger">
+            <h3>Get Started</h3>
+            <button class="button button-blue">Add filter</button>
+        </div>
+        <div class="content">
+            <h1>Table data</h1>
+            <div style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>50</td>
+                        <td>London</td>
+                        <td>England</td>
+                    </tr>
+                    <tr>
+                        <td>Jane</td>
+                        <td>Doe</td>
+                        <td>45</td>
+                        <td>Paris</td>
+                        <td>France</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Smith</td>
+                        <td>30</td>
+                        <td>New York</td>
+                        <td>USA</td>
+                    </tr>
+                    <tr>
+                        <td>Jane</td>
+                        <td>Smith</td>
+                        <td>25</td>
+                        <td>San Francisco</td>
+                        <td>USA</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
