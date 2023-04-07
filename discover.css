@@ -22,15 +22,83 @@ svg {
   stroke-width: 3;
 }
 
-.search-container,
-.chart-container {
-  height: 25rem;
+.charts-container {
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+}
+
+.charts {
+  width: 100%;
+  padding: 2rem;
+}
+
+.chart-container {
+  height: 25rem;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 5%;
+  border: solid 1px rgb(60, 174, 230, 0.2);
+  box-shadow: 3px 3px rgb(60, 174, 230, 0.1);
 }
 
 .search-container {
   height: 5rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-container input{
+  border: 2px solid rgb(60, 174, 230, 0.7);
+  color: rgb(60, 174, 230, 1);
+}
+
+.filtre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.filtre input {
+  border: solid 3px rgb(60, 174, 230, 1);
+}
+
+#filtru {
+  background-color: rgb(60, 174, 230, 1);
+  color: #ffffff;
+}
+
+.download {
+  display: flex;
+  padding: 2px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.descarca {
+  background-color: rgb(48, 230, 48);
+  color: #ffffff;
+  border: 0px;
+}
+
+.format-type {
+  display: none;
+}
+
+.download:hover .format-type {
+  display: block;
+  color: rgb(60, 174, 230, 1);
 }
