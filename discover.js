@@ -24,6 +24,7 @@ new Chart(ctx1, {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -61,10 +62,16 @@ new Chart(ctx2, {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
         text: "Grafic pentru compararea numarului total de someri femei vs barbati pe fiecare luna a anului 2022",
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
       },
     },
   },
