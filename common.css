@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;800&display=swap');
 
+:root {
+    --color-primary: white;
+    --color-secondary: #f1f1f1;
+    --color-tertiary: rgb(60, 174, 230, 1);
+    --color-quaternary: rgb(54, 159, 211);
+}
+
 * {
     box-sizing: border-box;
     font-size: 1.2rem;
@@ -9,9 +16,11 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f1f1f1;
+    background-color: var(--color-secondary);
     display: flex;
+    height: 100vh;
 }
+
 
 .button {
     border: none;
@@ -29,13 +38,58 @@ body {
 }
 
 .button-blue { 
-    background-color: rgb(60,174,230,1);
+    background-color: var(--color-tertiary);
 }
 
 .button-blue:hover{
-    background-color: rgb(54, 159, 211);
+    background-color: var(--color-tertiary);
     transition: 0.5s;
 }
 
+.button-white {
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
+    transition: 0.5s;
+}
 
+.button-white:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+form {
+    margin: 30px;
+    width: 80%;
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: 0 0 6px rgba(102, 175, 233, 0.6);
+}
+
+label {
+    color: #333;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
 

@@ -1,3 +1,8 @@
+body {
+    justify-content: center;
+    align-items: center;
+}
+
 h2 {
     color: #333;
     font-size: 24px;
@@ -6,52 +11,18 @@ h2 {
     text-align: center;
 }
 
-.container {
-    background-color: white;
-    margin: 100px auto;
-    max-width: 400px;
-    padding: 30px 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.container-login {
     width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 1px 2px 4px #cecdcd;
+    border-radius: 10px;
+    background-color: var(--color-primary);
 }
 
-form {
-    margin: 30px;
-    width: 80%;
-}
-
-input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
-    display: block;
-    font-size: 14px;
-    height: 34px;
-    line-height: 1.42857;
-    padding: 6px 12px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
-}
-
-input:focus {
-    border-color: #66afe9;
-    outline: 0;
-    box-shadow: 0 0 6px rgba(102, 175, 233, 0.6);
-}
-
-label {
-    color: #333;
-    display: inline-block;
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-
-.form-group {
-    margin-bottom: 15px;
+.container-login img {
+  margin: auto;
 }
