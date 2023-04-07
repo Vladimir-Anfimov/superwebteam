@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unemployment</title>
-    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="profile.css">
 </head>
 
 <body>
@@ -28,16 +29,71 @@
     <main>
         <div class="navbar">
             <img id="burger-icon" src="resources/burger.png" alt="burger-menu" class="mobile-burger">
-            <h3>Get Started</h3>
+            <h3>Profile</h3>
             <button class="button button-blue">Add filter</button>
         </div>
         <div class="content">
-            <h1>HELLO Profile</h1>
+            <h1>Sami's profile</h1>
+            <div class="container-subscription" >
+                <h4>Your application is on the free plan</h4>
+                <p>Paid plans offer unlimited access to the platform, after your demo you can try it.</p>
+                <p>Your plan will expire in <b>6 days</b>.</p>
+                <button class="button button-white">Upgrade</button>
+            </div>
+            <ul class="tabs-headers">
+                <button id="btn-tab-one" class="button button-blue">Personal information</button>
+                <button id="btn-tab-two" class="button button-blue">Subscription</button>
+                <button id="btn-tab-three" class="button button-blue">Change password</button>
+            </ul>
+            <div class="container-tabs">
+                <div class="tab tab-one">
+                    <form>
+                        <div class="form-group">
+                            <label for="first-name">First name</label>
+                            <input type="text" name="first-name" value="Sami" id="first-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last name</label>
+                            <input type="text" name="last-name" value="Sami" id="last-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" value="sami@gmail.com" id="email">
+                        </div>
+                        <button class="button button-blue">Save</button>
+                    </form>
+                </div>
+                <div class="tab tab-two">
+                    <p>Plan: Free</p>
+                    <p>Start date: 01/01/2021</p>
+                    <p>End date: 01/01/2021</p>
+                    <p>Payment method: Credit card</p>
+                    <p>Card holder: Sami Sami</p>
+                </div>
+                <div class="tab tab-three container-password">
+                    <form>
+                        <p>Enter your current password and the new one.</p>
+                        <div class="form-group">
+                            <label for="current-password">Current password</label>
+                            <input type="password" name="current-password" id="current-password">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">New password</label>
+                            <input type="password" name="new-password" id="new-password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm password</label>
+                            <input type="password" name="confirm-password" id="confirm-password">
+                        </div>
+                        <button class="button button-blue">Change password</button>
+                    </form>
+                </div>
         </div>
     </main>
 
 
     <script src="./main.js"></script>
+    <script src="./profile.js"></script>
 </body>
 
 </html>
