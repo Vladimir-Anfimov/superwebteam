@@ -30,7 +30,12 @@
                     <li><a href="#"><span>2.1 </span> Perspectiva produs</a></li>
                     <li><a href="#"><span>2.2 </span> Cerinte principale </a>
                         <ol role="directory">
-                            <li><a href="#"><span>2.2.1 </span>...</a></li>
+                            <li><a href="#"><span>2.2.1 </span>Statistici date somaj</a></li>
+                            <li><a href="#"><span>2.2.2 </span>Vizualizare grafica a datelor</a></li>
+                            <li><a href="#"><span>2.2.3 </span>Filtrare si comparare multi-criteriala</a></li>
+                            <li><a href="#"><span>2.2.4 </span>Descarcare a datelor</a></li>
+                            <li><a href="#"><span>2.2.5 </span>Autentificare utilizatori</a></li>
+                            <li><a href="#"><span>2.2.6 </span>Sistem de abonare</a></li>
                         </ol>
                     </li>
                     <li><a href="#"><span>2.3 </span> Categorii utilizatori</a></li>
@@ -59,7 +64,7 @@
                     <li><a href="#"><span>3.3 </span>Interfata comunicare</a></li>
                     <ol role="directory">
                         <li><a href="#"><span>3.3.1 </span>HTTPS</a></li>
-                        <li><a href="#"><span>3.3.2 </span>REST</a></li>
+                        <li><a href="#"><span>3.3.2 </span>GraphQL</a></li>
                     </ol>
                 </ol>
             </li>
@@ -70,6 +75,7 @@
                     <li><a href="#"><span>4.1 </span> Functionalitate 1</a></li>
                     <li><a href="#"><span>4.2 </span>  Functionalitate 2</a></li>
                     <li><a href="#"><span>4.3</span> Functionalitate 3</a></li>
+                    <li><a href="#"><span>4.4 </span> SISTEM FILTRARE CRITERII</a></li>
                 </ol>
             </li>
 
@@ -199,7 +205,7 @@
             <h3>2.4. Mediu de operare</h3>
             <p>
                 Aplicatia va putea fi folosita pe orice calculator, tableta sau telefon cu conditia ca acestea 
-                sa utilizeze un browser web unde va rula aplicatia.   
+                sa utilizeze un browser web unde va rula aplicatia si sa existe o conexiune la internet. 
             </p>
         </section>
 
@@ -338,12 +344,61 @@
 
             <!-- section 3.3.2 -->
             <section id="">
-                <h4>3.3.2. REST</h4>
+                <h4>3.3.2. GraphQL</h4>
                 <p>
-                    REST (Representational State Transfer) este un stil de arhitectura pentru
-                    comunicarea intre client si server. Acesta este bazat pe HTTP si se foloseste
-                    de metodele GET, POST, PUT si DELETE pentru a comunica cu serverul.
+                    GraphQL este un limbaj de interogare pentru API-uri. Acesta permite
+                    clientilor sa faca cereri catre server pentru a obtine datele dorite.
+                    GraphQL este un limbaj declarativ, ceea ce inseamna ca clientul specifica
+                    ce date doreste si nu cum acestea trebuie obtinute.
                 </p>
+        </section>
+
+        <!-- section 4 -->
+        <section id="">
+            <h3>Functionalitati</h3>
+
+            <!-- section 4.1 -->
+            <section id="">
+                <h4>4.1. Statistica si vizualizare date somaj</h4>
+                <p>
+                    Datele despre somaj sunt extrase de pe site-ul <i>www.data.gov.ro</i>, iar acestea
+                    sunt stocate intr-un format CSV greu de utilizat in practica pentru diverse comparatii.
+                    Pentru a facilita utilizarea acestor date, acestea vor fi preluate si stocate intr-o baza
+                    relationala ce permite interogari complexe ce pot agrega datele in functie de anumite criterii.
+                </p>
+                <div>
+                    Urmatoarele forme de vizualizare grafica sunt disponibile utilizatorului:
+                    <ul>
+                        <li>
+                            <p>Vizualizare cartografica</p>
+                            <img width="50%" src="./images/cartografic.png" alt="cartografic">
+                        </li>
+                        <li>
+                            <p>Vizualizare line graph</p>
+                            <img width="100%" src="./images/linegraph.png" alt="linegraph">
+                        </li>
+                        <li>
+                            <p>Vizualizare pie chart</p>
+                            <img width="50%" src="./images/piechart.png" alt="piechart">
+                        </li>
+                        <li>
+                            <p>Vizualizare bar chart</p>
+                            <img width="100%" src="./images/barplot.png" alt="barchart">
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- section 4.2  -->
+            <section id="">
+                <h4>4.2. Filtrare si comparare multi-criteriala</h4>
+                <p>
+                    Filtrele sunt urmatoarele:
+
+                </p>
+                <div>
+                    
+                </div>
         </section>
 </body>
 </html>
