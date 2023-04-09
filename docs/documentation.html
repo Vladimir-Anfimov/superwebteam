@@ -160,10 +160,13 @@
           <a href="#"><span>5. </span>Alte cerinte</a>
           <ol role="directory">
             <li>
-              <a href="#"><span>5.1 </span> Cerinta de performanta</a>
+              <a href="#"><span>5.1 </span> Cerinta de user experience</a>
             </li>
             <li>
-              <a href="#"><span>5.2 </span> Cerinte de securitate</a>
+              <a href="#"><span>5.2 </span> Cerinta de performanta</a>
+            </li>
+            <li>
+              <a href="#"><span>5.3 </span> Cerinte de securitate</a>
             </li>
           </ol>
         </li>
@@ -536,14 +539,116 @@
 
       <!-- section 4.4  -->
       <section id="">
-        <h3>4.4. Autentificarea utilizatorilor si sistemul de abonare</h3>
-        <p></p>
+        <h3>4.4. Sistemul de filtrare a criteriilor</h3>
+        <p>
+          Nu este suficient sa afisam doar datele despre somaj, este important
+          si modul in care este facilitata selectia criteriilor de filtrare. In
+          acest scop avem un sistem in trei pasi:
+        </p>
+        <ul>
+          <li>
+            Alegerea judetelor, utilizandu-se o harta a Romaniei in format SVG.
+            <img width="100%" src="./images/step_one.png" alt="map" />
+          </li>
+          <li>
+            Alegerea perioadei utilizandu-se un date picker.
+            <img width="100%" src="./images/step_two.png" alt="filter" />
+          </li>
+          <li>
+            Alegerea unui filtru cum ar fi numarul total de someri, de femei, de
+            barbati, someri indemnizati, someri neindemnizati, someri din mediul
+            urban, someri din mediul rural, someri dintr-o categorie de varsta,
+            someri cu un anumit nivel de educatie. Categoriile de someri care
+            vor putea fi comparate si care sunt compatibile din punct de vedere
+            al seturilor de date disponibile sunt: barbati vs femei (numar total
+            sau rata somajului), indemnizati vs neindemnizati, rural vs urban,
+            categorii de varsta, nivele de educatie, etc.
+            <img width="100%" src="./images/step_three.png" alt="filter" />
+          </li>
+        </ul>
+      </section>
+
+      <!-- section 4.5  -->
+      <section id="">
+        <h3>4.5. Autentificarea utilizatorilor</h3>
+        <p>
+          Utilizatorii vor putea sa isi creeze conturi pe platforma noastra
+          pentru a putea salva datele legate de graficele care le sunt de
+          interes. Intrucat utilizarea platformei necesita un abonament lunar,
+          contul este de asemenea necesar pentru identificarea platilor.
+          Utilizatorii vor putea sa isi schimbe parola si datele personale in
+          orice moment prin intermediul paginii de profil.
+        </p>
+
+        <img width="100%" src="./images/login.png" alt="login" />
+      </section>
+
+      <!-- section 4.6  -->
+      <section id="">
+        <h3>4.6. Plata abonamentului</h3>
+        <p>
+          Utilizatorii vor putea sa isi plateasca abonamentul lunar prin
+          intermediul platformei noastre. Pentru a putea plati abonamentul,
+          utilizatorii trebuie sa aiba un card de credit sau de debit. Plata se
+          va face prin intermediul serviciului de plata Stripe.
+        </p>
+        <img width="100%" src="./images/abonament_plata.png" alt="payment" />
+      </section>
+
+      <!-- section 4.7  -->
+      <section id="">
+        <h3>4.7. Sistemul de pin/favorite</h3>
+        <p>
+          Utilizatorii vor putea sa marcheze graficele care le sunt de interes,
+          iar acestea vor aparea pe pagina principala a acestora.
+        </p>
+        <img width="100%" src="./images/index_page.png" alt="index_page" />
       </section>
     </section>
 
     <!-- section 5 -->
     <section id="">
-      <h2>5. Autori</h2>
+      <h2>5. Alte cerinte</h2>
+      <section id="">
+        <h3>5.1. Cerinta de user experience</h3>
+        <p>
+          Aplicatia noastra va fi usor de folosit, chiar si de catre utilizatori
+          neexperimentati. Acest lucru este incurajat prin interfata grafica
+          simpla si intuitiva, si prin faptul ca sistemele de filtrare,
+          cumparare de abonamente si salvare a datelor abstractizeaza procesele
+          complexe.
+        </p>
+      </section>
+
+      <section id="">
+        <h3>5.2. Cerinta de performanta</h3>
+        <p>
+          Este important ca aplicatia noastra sa fie rapida si sa nu consume
+          prea multe resurse nici pe partea de client, cat nici pe partea de
+          server. Astfel ne pozitionam la mijloc prin alegerea unei randari
+          partial client-side si partial server-side. Pe partea de backend este
+          utilizat Redis pentru a stoca datele in cache, astfel baza de date
+          PostgreSQL nu va fi suprasolicitata. Pentru o incarcare mai rapida a
+          paginilor se va utiliza un CDN pentru a stoca resursele statice.
+        </p>
+      </section>
+
+      <section id="">
+        <h3>5.3. Cerinta de securitate</h3>
+        <p>
+          Pentru a asigura securitatea datelor utilizatorilor, vom folosi
+          criptarea datelor in PostgreSQL. Pentru a asigura securitatea
+          platilor, vom folosi serviciul de plata Stripe, care este unul dintre
+          cei mai siguri procesatori de plata din lume. De asemenea comunicare
+          are loc doar prin HTTPS si se va utiliza un sistem de refresh token
+          pentru a asigura securitatea sesiunilor.
+        </p>
+      </section>
+    </section>
+
+    <!-- section 6 -->
+    <section id="">
+      <h2>6. Autori</h2>
       <ul>
         <li typeof="sa:ContributorRole" property="schema:author">
           <span typeof="schema:Person">
@@ -563,9 +668,9 @@
       </ul>
     </section>
 
-    <!-- section 6 -->
+    <!-- section 7 -->
     <section id="">
-      <h2>6. Bibliografie</h2>
+      <h2>7. Bibliografie</h2>
 
       <dl>
         <dt id="ref-SHTML">SHTML</dt>
