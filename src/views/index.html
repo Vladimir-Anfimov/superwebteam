@@ -12,13 +12,25 @@
 
     <!-- SIDEBAR -->
     <div id="sidebar-element" class="sidebar">
-        <img class="sidebar-close" src="../static/images/close.png" alt="close">
-        <img class="sidebar-logo" src="../static/images/logo.png" alt="logo">
+        <img class="sidebar-close" src="../static/images/close.png" alt="close" />
+        <img class="sidebar-logo" src="../static/images/logo.png" alt="logo" />
         <ul>
-            <li><img src="../static/images/house.png" alt="house">Get Started</li>
-            <li><img src="../static/images/magnifying-glass.png" alt="house">Discover</li>
-            <li><img src="../static/images/user.png" alt="house">Profile</li>
-            <li><img src="../static/images/logout.png" alt="house">Logout</li>
+            <li onclick="location.href = `./index.html`">
+                <img src="../static/images/house.png" alt="house" />
+                Get Started
+            </li>
+            <li onclick="location.href = `./discover.html`">
+                <img src="../static/images/magnifying-glass.png" alt="house" />
+                Discover
+            </li>
+            <li onclick="location.href = `./profile.html`">
+                <img src="../static/images/user.png" alt="house" />
+                Profile
+            </li>
+            <li onclick="location.href = `./login.html`">
+                <img src="../static/images/logout.png" alt="house" />
+                Logout
+            </li>
         </ul>
     </div>
 
@@ -29,51 +41,13 @@
             <h3>Get Started</h3>
             <button class="button button-blue">Add filter</button>
         </div>
-        <div class="content">
-            <h1>Table data</h1>
-            <div style="overflow-x: auto;">
-                <table>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Age</th>
-                        <th>City</th>
-                        <th>Country</th>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>50</td>
-                        <td>London</td>
-                        <td>England</td>
-                    </tr>
-                    <tr>
-                        <td>Jane</td>
-                        <td>Doe</td>
-                        <td>45</td>
-                        <td>Paris</td>
-                        <td>France</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Smith</td>
-                        <td>30</td>
-                        <td>New York</td>
-                        <td>USA</td>
-                    </tr>
-                    <tr>
-                        <td>Jane</td>
-                        <td>Smith</td>
-                        <td>25</td>
-                        <td>San Francisco</td>
-                        <td>USA</td>
-                    </tr>
-                </table>
-            </div>
+        <div class="chart-container content">
+            <div class="canvas-container"><canvas id="barChart"></canvas></div>
+            <div class="pin-container"><img src="../static/images/pin.png" alt="pin"></div>
         </div>
     </main>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../static/js/main.js"></script>
 </body>
 </html>

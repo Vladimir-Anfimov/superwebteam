@@ -22,12 +22,6 @@ svg {
   stroke-width: 3;
 }
 
-.chart-container {
-  height: 25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 
 .filtre {
@@ -151,6 +145,7 @@ svg {
 }
 
 
+
 @media only screen and (max-width: 1150px) {
   .setup {
     flex-direction: column;
@@ -170,16 +165,13 @@ svg {
     flex: 100%;
   }
 
-  .selected-items {
-    flex: 100%;
-  }
+.selected-items {
+  flex: 100%;
+}
 
-    .romania-map {
-      height: 15rem;
-    } 
+  .romania-map {
+    height: 15rem;
+  } 
 
-    .item span {
-      font-size: 1rem;
-    }
-    
+
 }

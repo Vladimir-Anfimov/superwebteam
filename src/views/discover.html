@@ -16,12 +16,22 @@
       <img class="sidebar-close" src="../static/images/close.png" alt="close" />
       <img class="sidebar-logo" src="../static/images/logo.png" alt="logo" />
       <ul>
-        <li><img src="../static/images/house.png" alt="house" />Get Started</li>
-        <li>
-          <img src="../static/images/magnifying-glass.png" alt="house" />Discover
+        <li onclick="location.href = `./index.html`">
+          <img src="../static/images/house.png" alt="house" />
+          Get Started
         </li>
-        <li><img src="../static/images/user.png" alt="house" />Profile</li>
-        <li><img src="../static/images/logout.png" alt="house" />Logout</li>
+        <li onclick="location.href = `./discover.html`">
+          <img  src="../static/images/magnifying-glass.png" alt="house" />
+          Discover
+        </li>
+        <li onclick="location.href = `./profile.html`">
+          <img src="../static/images/user.png" alt="house" />
+          Profile
+        </li>
+        <li onclick="location.href = `./login.html`">
+          <img src="../static/images/logout.png" alt="house" />
+          Logout
+        </li>
       </ul>
     </div>
 
@@ -319,22 +329,24 @@
       </div>
 
       <div class="chart-container content">
-        <canvas id="pieChart"></canvas>
-      </div>
-      
-      
-      <div class="chart-container content">
-        <canvas id="lineChart"></canvas>
+        <div class="canvas-container"><canvas id="pieChart"></canvas></div>
+        <div class="pin-container"><img src="../static/images/pin.png" alt="pin"></div>
       </div>
       
       <div class="chart-container content">
-        <canvas id="barChart"></canvas>
+        <div class="canvas-container"><canvas id="lineChart"></canvas></div>
+        <div class="pin-container"><img src="../static/images/pin.png" alt="pin"></div>
+      </div>
+      
+      <div class="chart-container content">
+        <div class="canvas-container"><canvas id="barChart"></canvas></div>
+        <div class="pin-container"><img src="../static/images/pin.png" alt="pin"></div>
       </div>
       
     </main>
 
-    <script src="../static/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/js/main.js"></script>
     <script src="../static/js/discover.js"></script>
   </body>
 </html>
