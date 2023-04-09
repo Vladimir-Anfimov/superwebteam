@@ -7,9 +7,14 @@
   justify-content: center;
 }
 
+.land {
+  transition: 0.5s;
+}
+
 .land:hover {
   fill-opacity: 1;
-  fill: rgb(60, 174, 230, 1);
+  fill: rgb(25, 81, 107);
+  transition: 0.5s;
 }
 
 svg {
@@ -20,29 +25,6 @@ svg {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 3;
-}
-
-
-
-.filtre {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.filtre input {
-  border: solid 3px rgb(60, 174, 230, 1);
-}
-
-#filtru {
-  background-color: rgb(60, 174, 230, 1);
-  color: #ffffff;
-}
-
-.format-type {
-  display: none;
 }
 
 .setup {
@@ -72,7 +54,6 @@ svg {
 }
 
 .choose {
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,7 +82,6 @@ svg {
   background-color: var(--color-tertiary);
   transition: 0.5s;
 }
-
 
 .selected-items {
   display: flex;
@@ -137,14 +117,11 @@ svg {
   transition: 0.5s;
 }
 
-
 .split-line {
   height: 700px;
   width: 1px;
   background-color: rgb(205, 205, 205);
 }
-
-
 
 @media only screen and (max-width: 1150px) {
   .setup {
@@ -165,13 +142,11 @@ svg {
     flex: 100%;
   }
 
-.selected-items {
-  flex: 100%;
-}
+  .selected-items {
+    flex: 100%;
+  }
 
   .romania-map {
     height: 15rem;
-  } 
-
-
+  }
 }

@@ -1,75 +1,61 @@
-.container-subscription {
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 1px 2px 4px #cecdcd;
-    background-color: var(--color-tertiary);
-    color: var(--color-primary);
-}
-
 form {
-    margin: 0px;
-    padding: 0;
-    width: 100%;
+  margin: 0px;
+  padding: 0;
+  width: 100%;
 }
 
 .container-password h4 {
-    margin: 20px 0 0 0;
+  margin: 20px 0 0 0;
 }
 
 .container-password p {
-    font-size: 1rem;   
-    margin: 0 0 20px 0; 
+  font-size: 1rem;
+  margin: 0 0 20px 0;
 }
 
 label {
-    font-size: 1rem;
-    font-weight: 100;
+  font-size: 1rem;
+  font-weight: 100;
 }
 
 input {
-    width: 40%;
+  width: 40%;
 }
 
 .tabs-headers {
-    display: flex;
-    justify-content: left;
-    margin: 20px 0;
-    padding: 0;
-    list-style: none;
+  display: flex;
+  justify-content: left;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
 }
 
 .tabs-headers button {
-    margin: 0 10px 0 0;
+  margin: 0 10px 0 0;
 }
 
 .tab {
-    background-color: var(--color-secondary);
-    box-shadow: 1px 2px 4px #cecdcd;
-    border-radius: 10px;
-    padding: 25px;
+  background-color: var(--color-secondary);
+  box-shadow: 1px 2px 4px #cecdcd;
+  border-radius: 10px;
+  padding: 25px;
 }
 
 .tab p {
-    font-size: 1rem;
-    margin: 0 0 20px 0;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
 }
 
-
 @media screen and (max-width: 768px) {
-    .container-subscription p {
-        font-size: 1rem;
-    }
+  .tabs-headers {
+    flex-direction: column;
+  }
 
-    .tabs-headers {
-        flex-direction: column;
-    }
+  .tabs-headers button {
+    margin: 0 0 10px 0;
+  }
 
-    .tabs-headers button {
-        margin: 0 0 10px 0;
-    }
-
-    input {
-        width: 100%;
-    }
+  input {
+    width: 100%;
+  }
 }

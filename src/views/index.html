@@ -51,10 +51,26 @@
           Profile
         </button>
       </div>
+
+      <div class="container-message content">
+        <h4>Welcome to the board!</h4>
+        <p>
+          You can pin any chart you want from the discovery page and you will
+          see it here.
+        </p>
+        <button
+          class="button button-white"
+          onclick="location.href = `./discover.html`"
+        >
+          Discover more
+        </button>
+      </div>
+
       <div class="chart-container content">
         <div class="canvas-container"><canvas id="barChart"></canvas></div>
         <div class="pin-container">
           <img src="../static/images/pin.png" alt="pin" />
+          <img src="../static/images/downloading.png" alt="pin" />
         </div>
       </div>
     </main>

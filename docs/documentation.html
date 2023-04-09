@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,8 +9,7 @@
     <link
       href="https://w3c.github.io/scholarly-html/css/scholarly.min.css"
       type="text/css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <title>UnX Documentation</title>
   </head>
   <body>
@@ -225,8 +226,8 @@
           Aceasta aplicatie va oferi posibilitatea utilizatorilor sa vizualizeze
           datele despre situatia șomerilor din România si exportarea lor in mai
           multe moduri (SVG, CSV, PDF), pe baza unor filtre alese de ei, in
-          crearea ei fiind folosite cunostinte dobandite la materia Tehnologii
-          Web.
+          crearea aplicatiei fiind folosite cunostinte dobandite la materia
+          Tehnologii Web.
         </p>
       </section>
       <section id="">
@@ -234,9 +235,9 @@
         <section id="">
           <h4>2.2.1 Statistici date somaj</h4>
           <p>
-            Utilizatorii vor putea sa vizualizeze statistici despre somaj cum ar
-            fi rata somajului sau numarul total de someri pe anumite perioade
-            specificate si pe judete.
+            Utilizatorii vor putea sa vizualizeze statistici despre somaj precum
+            rata somajului, numarul total de someri pe anumite perioade
+            specificate, pe judete si pe alte criterii.
           </p>
         </section>
 
@@ -244,8 +245,9 @@
           <h4>2.2.2 Vizualizare grafica a datelor</h4>
           <p>
             Datele vor putea fi vizualizate sub forma unor grafice cum ar fi pie
-            chart, bar chart sau line chart. Deasemenea va exista si o harta
-            interactiva a Romaniei cu situatia somajului pe fiecare judet.
+            chart, bar chart sau line chart. De asemenea exista si o harta
+            interactiva a Romaniei pentru selectia judetelor in cadrul
+            filtrarii.
           </p>
         </section>
 
@@ -480,8 +482,7 @@
               <img
                 width="50%"
                 src="./images/cartografic.png"
-                alt="cartografic"
-              />
+                alt="cartografic" />
             </li>
             <li>
               <p>Vizualizare line graph</p>
@@ -504,87 +505,108 @@
         <h3>4.2. Filtrare si comparare multi-criteriala</h3>
         <p>Sistemul de filtrare al criteriilor este in 3 pasi:</p>
         <ul>
-            <li>Alegerea judetului, utilizandu-se o harta a Romaniei in format SVG.</li>
-            <li>Alegerea perioadei utilizandu-se un date picker.</li>
-            <li>Alegerea unui filtru cum ar fi numarul total de someri, de femei, de barbati, someri indemnizati,
-                someri neindemnizati, someri din mediul urban, someri din mediul rural, someri dintr-o categorie de varsta, 
-                someri cu un anumit nivel de educatie. Categoriile de someri care vor putea fi comparate si care sunt 
-                compatibile din punct de vedere al seturilor de date disponibile sunt: 
-                barbati vs femei (numar total sau rata somajului), indemnizati vs neindemnizati, rural vs urban, categorii de varsta, 
-                nivele de educatie.
-            </li>
+          <li>
+            Alegerea judetului, utilizandu-se o harta a Romaniei in format SVG.
+          </li>
+          <li>Alegerea perioadei utilizandu-se un date picker.</li>
+          <li>
+            Alegerea unui filtru cum ar fi numarul total de someri, de femei, de
+            barbati, someri indemnizati, someri neindemnizati, someri din mediul
+            urban, someri din mediul rural, someri dintr-o categorie de varsta,
+            someri cu un anumit nivel de educatie. Categoriile de someri care
+            vor putea fi comparate si care sunt compatibile din punct de vedere
+            al seturilor de date disponibile sunt: barbati vs femei (numar total
+            sau rata somajului), indemnizati vs neindemnizati, rural vs urban,
+            categorii de varsta, nivele de educatie.
+          </li>
         </ul>
       </section>
 
       <!-- section 4.3  -->
       <section id="">
         <h3>4.3. Descarcare a datelor</h3>
-        <p>Dupa generarea graficelor, utilizatorul poate alege pe care dintre ele doreste sa le descarce si sub ce format, formatele 
-            puse la dispozitie fiind: PDF care poate contine atat reprezentarea grafica a graficelor cat si reprezentarea lor tabelara, 
-            SVG care va contine reprezentarea lor in grafica vectoriala si formatul CSV.
+        <p>
+          Dupa generarea graficelor, utilizatorul poate alege pe care dintre ele
+          doreste sa le descarce si sub ce format, formatele puse la dispozitie
+          fiind: PDF care poate contine atat reprezentarea grafica a graficelor
+          cat si reprezentarea lor tabelara, SVG care va contine reprezentarea
+          lor in grafica vectoriala si formatul CSV.
         </p>
       </section>
 
-       <!-- section 4.4  -->
-       <section id="">
+      <!-- section 4.4  -->
+      <section id="">
         <h3>4.4. Autentificarea utilizatorilor si sistemul de abonare</h3>
         <p></p>
       </section>
     </section>
 
-     <!-- section 5 -->
-     <section id="">
-        <h2>5. Autori</h2>
-        <ul>
-            <li typeof="sa:ContributorRole" property="schema:author">
-                <span typeof="schema:Person">
-                    <meta property="schema:givenName" content="Vladimir">
-                    <meta property="schema:familyName" content="Anfimov">
-                    <span property="schema:name">Vladimir Anfimov</span>
-                </span>
-            </li>
-            <li typeof="sa:ContributorRole" property="schema:author">
-                <span typeof="schema:Person">
-                    <meta property="schema:givenName" content="Samuel">
-                    <meta property="schema:additionalName" content="Ionuț">
-                    <meta property="schema:familyName" content="Lazurcă">
-                    <span property="schema:name">Samuel-Ionuț Lazurcă</span>
-                </span>
-            </li>
-        </ul>
+    <!-- section 5 -->
+    <section id="">
+      <h2>5. Autori</h2>
+      <ul>
+        <li typeof="sa:ContributorRole" property="schema:author">
+          <span typeof="schema:Person">
+            <meta property="schema:givenName" content="Vladimir" />
+            <meta property="schema:familyName" content="Anfimov" />
+            <span property="schema:name">Vladimir Anfimov</span>
+          </span>
+        </li>
+        <li typeof="sa:ContributorRole" property="schema:author">
+          <span typeof="schema:Person">
+            <meta property="schema:givenName" content="Samuel" />
+            <meta property="schema:additionalName" content="Ionuț" />
+            <meta property="schema:familyName" content="Lazurcă" />
+            <span property="schema:name">Samuel-Ionuț Lazurcă</span>
+          </span>
+        </li>
+      </ul>
     </section>
 
-     <!-- section 6 -->
-     <section id="">
-        <h2>6. Bibliografie</h2>
-        
-        <dl>
-            <dt id="ref-SHTML"> SHTML </dt>
-            <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://w3c.github.io/scholarly-html/">
-                <cite property="schema:name">
-                    <a href="https://w3c.github.io/scholarly-html/"> Scholarly HTML </a>
-                </cite>
-            </dd>
-        </dl>
+    <!-- section 6 -->
+    <section id="">
+      <h2>6. Bibliografie</h2>
 
-        <dl>
-            <dt id="ref-INFO-UAIC"> INFO-UAIC </dt>
-            <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/">
-                <cite property="schema:name">
-                    <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/"> Cursul de Tehnologii Web </a>
-                </cite>
-            </dd>
-        </dl>
+      <dl>
+        <dt id="ref-SHTML">SHTML</dt>
+        <dd
+          property="schema:citation"
+          typeof="schema:ScholarlyArticle"
+          resource="https://w3c.github.io/scholarly-html/">
+          <cite property="schema:name">
+            <a href="https://w3c.github.io/scholarly-html/"> Scholarly HTML </a>
+          </cite>
+        </dd>
+      </dl>
 
-        <dl>
-            <dt id="ref-INFO-UAIC-LAB"> INFO-UAIC </dt>
-            <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://fii-tw.notion.site/TEHNOLOGII-WEB-3ce031995e2841de872a67896b8ad15c">
-                <cite property="schema:name">
-                    <a href="https://fii-tw.notion.site/TEHNOLOGII-WEB-3ce031995e2841de872a67896b8ad15c"> Laboratorul de Tehnologii Web </a>
-                </cite>
-            </dd>
-        </dl>
-    </section> 
-    
+      <dl>
+        <dt id="ref-INFO-UAIC">INFO-UAIC</dt>
+        <dd
+          property="schema:citation"
+          typeof="schema:ScholarlyArticle"
+          resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/">
+          <cite property="schema:name">
+            <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/">
+              Cursul de Tehnologii Web
+            </a>
+          </cite>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt id="ref-INFO-UAIC-LAB">INFO-UAIC</dt>
+        <dd
+          property="schema:citation"
+          typeof="schema:ScholarlyArticle"
+          resource="https://fii-tw.notion.site/TEHNOLOGII-WEB-3ce031995e2841de872a67896b8ad15c">
+          <cite property="schema:name">
+            <a
+              href="https://fii-tw.notion.site/TEHNOLOGII-WEB-3ce031995e2841de872a67896b8ad15c">
+              Laboratorul de Tehnologii Web
+            </a>
+          </cite>
+        </dd>
+      </dl>
+    </section>
   </body>
 </html>
