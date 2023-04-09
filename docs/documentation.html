@@ -1,404 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://w3c.github.io/scholarly-html/css/scholarly.min.css" type="text/css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://w3c.github.io/scholarly-html/css/scholarly.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
     <title>UnX Documentation</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1 style="padding-top:2rem;">Unemployment Explorer</h1>
+      <h1 style="padding-top: 2rem">Unemployment Explorer</h1>
     </header>
 
     <div role="contentinfo">
-        <ol role="directory">
-            <!-- 1 -->
-            <li><a href="#"> <span>1. </span> Introducere</a>
-                <ol role="directory">
-                    <li><a href="#"><span>1.1 </span> Scopul documentului</a></li>
-                    <li><a href="#"><span>1.2 </span> Publicul destinat si sugestii de lectura</a></li>
-                    <li><a href="#"><span>1.3 </span> Scopul proiectului</a></li>
-                </ol>
+      <ol role="directory">
+        <!-- 1 -->
+        <li>
+          <a href="#"> <span>1. </span> Introducere</a>
+          <ol role="directory">
+            <li>
+              <a href="#"><span>1.1 </span> Scopul documentului</a>
             </li>
-
-            <!-- 2 -->
-            <li><a href="#"><span>2. </span> Descriere</a>
-                <ol role="directory">
-                    <li><a href="#"><span>2.1 </span> Perspectiva produs</a></li>
-                    <li><a href="#"><span>2.2 </span> Cerinte principale </a>
-                        <ol role="directory">
-                            <li><a href="#"><span>2.2.1 </span>Statistici date somaj</a></li>
-                            <li><a href="#"><span>2.2.2 </span>Vizualizare grafica a datelor</a></li>
-                            <li><a href="#"><span>2.2.3 </span>Filtrare si comparare multi-criteriala</a></li>
-                            <li><a href="#"><span>2.2.4 </span>Descarcare a datelor</a></li>
-                            <li><a href="#"><span>2.2.5 </span>Autentificare utilizatori</a></li>
-                            <li><a href="#"><span>2.2.6 </span>Sistem de abonare</a></li>
-                        </ol>
-                    </li>
-                    <li><a href="#"><span>2.3 </span> Categorii utilizatori</a></li>
-                    <li><a href="#"><span>2.4 </span> Mediu de operare</a></li>
-                    <li><a href="#"><span>2.5 </span> Ipoteze și dependențe</a></li>
-                </ol>
+            <li>
+              <a href="#"
+                ><span>1.2 </span> Publicul destinat si sugestii de lectura</a
+              >
             </li>
-
-            <!-- 3 -->
-            <li><a href="#"><span>3. </span>Cerinte de interfata externa</a>
-                <ol role="directory">
-                    <li><a href="#"><span>3.1 </span>Interfata userului</a></li>
-                    <ol role="directory">
-                        <li><a href="#"><span>3.1.1 </span>HTML</a></li>
-                        <li><a href="#"><span>3.1.2 </span>CSS</a></li>
-                        <li><a href="#"><span>3.1.3 </span>SVG</a></li>
-                        <li><a href="#"><span>3.1.4 </span>JavaScript</a></li>
-                    </ol>
-                    <li><a href="#"><span>3.2 </span>Interfata software</a></li>
-                    <ol role="directory">
-                        <li><a href="#"><span>3.2.1 </span>NodeJs</a></li>
-                        <li><a href="#"><span>3.2.2 </span>PostgreSQL</a></li>
-                        <li><a href="#"><span>3.2.3 </span>Redis</a></li>
-                        <li><a href="#"><span>3.2.4 </span>JWT</a></li>
-                    </ol>
-                    <li><a href="#"><span>3.3 </span>Interfata comunicare</a></li>
-                    <ol role="directory">
-                        <li><a href="#"><span>3.3.1 </span>HTTPS</a></li>
-                        <li><a href="#"><span>3.3.2 </span>GraphQL</a></li>
-                    </ol>
-                </ol>
+            <li>
+              <a href="#"><span>1.3 </span> Scopul proiectului</a>
             </li>
+          </ol>
+        </li>
 
-            <!-- 4 -->
-            <li><a href="#"><span>4. </span>Functionalitati</a>
-                <ol role="directory">
-                    <li><a href="#"><span>4.1 </span> Functionalitate 1</a></li>
-                    <li><a href="#"><span>4.2 </span>  Functionalitate 2</a></li>
-                    <li><a href="#"><span>4.3</span> Functionalitate 3</a></li>
-                    <li><a href="#"><span>4.4 </span> SISTEM FILTRARE CRITERII</a></li>
-                </ol>
+        <!-- 2 -->
+        <li>
+          <a href="#"><span>2. </span> Descriere</a>
+          <ol role="directory">
+            <li>
+              <a href="#"><span>2.1 </span> Perspectiva produs</a>
             </li>
-
-            <!-- 5 -->
-            <li><a href="#"><span>5. </span>Alte cerinte</a>
-                <ol role="directory">
-                    <li><a href="#"><span>5.1 </span> Cerinta de performanta</a></li>
-                    <li><a href="#"><span>5.2 </span> Cerinte de securitate</a></li>
-                </ol>
+            <li>
+              <a href="#"><span>2.2 </span> Cerinte principale </a>
+              <ol role="directory">
+                <li>
+                  <a href="#"><span>2.2.1 </span>Statistici date somaj</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><span>2.2.2 </span>Vizualizare grafica a datelor</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><span>2.2.3 </span>Filtrare si comparare
+                    multi-criteriala</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><span>2.2.4 </span>Descarcare a datelor</a>
+                </li>
+                <li>
+                  <a href="#"><span>2.2.5 </span>Autentificare utilizatori</a>
+                </li>
+                <li>
+                  <a href="#"><span>2.2.6 </span>Sistem de abonare</a>
+                </li>
+              </ol>
             </li>
+            <li>
+              <a href="#"><span>2.3 </span> Categorii utilizatori</a>
+            </li>
+            <li>
+              <a href="#"><span>2.4 </span> Mediu de operare</a>
+            </li>
+            <li>
+              <a href="#"><span>2.5 </span> Ipoteze și dependențe</a>
+            </li>
+          </ol>
+        </li>
 
-            <!-- 6 -->
-            <li><a href="#"><span>6. </span>Autori</a></li>
+        <!-- 3 -->
+        <li>
+          <a href="#"><span>3. </span>Cerinte de interfata externa</a>
+          <ol role="directory">
+            <li>
+              <a href="#"><span>3.1 </span>Interfata userului</a>
+            </li>
+            <ol role="directory">
+              <li>
+                <a href="#"><span>3.1.1 </span>HTML</a>
+              </li>
+              <li>
+                <a href="#"><span>3.1.2 </span>CSS</a>
+              </li>
+              <li>
+                <a href="#"><span>3.1.3 </span>SVG</a>
+              </li>
+              <li>
+                <a href="#"><span>3.1.4 </span>JavaScript</a>
+              </li>
+            </ol>
+            <li>
+              <a href="#"><span>3.2 </span>Interfata software</a>
+            </li>
+            <ol role="directory">
+              <li>
+                <a href="#"><span>3.2.1 </span>NodeJs</a>
+              </li>
+              <li>
+                <a href="#"><span>3.2.2 </span>PostgreSQL</a>
+              </li>
+              <li>
+                <a href="#"><span>3.2.3 </span>Redis</a>
+              </li>
+              <li>
+                <a href="#"><span>3.2.4 </span>JWT</a>
+              </li>
+            </ol>
+            <li>
+              <a href="#"><span>3.3 </span>Interfata comunicare</a>
+            </li>
+            <ol role="directory">
+              <li>
+                <a href="#"><span>3.3.1 </span>HTTPS</a>
+              </li>
+              <li>
+                <a href="#"><span>3.3.2 </span>GraphQL</a>
+              </li>
+            </ol>
+          </ol>
+        </li>
 
-            <!-- 7 -->
-            <li><a href="#"><span>7. </span>Bibliografie</a></li>
-        </ol>
+        <!-- 4 -->
+        <li>
+          <a href="#"><span>4. </span>Functionalitati</a>
+          <ol role="directory">
+            <li>
+              <a href="#"><span>4.1 </span> Functionalitate 1</a>
+            </li>
+            <li>
+              <a href="#"><span>4.2 </span> Functionalitate 2</a>
+            </li>
+            <li>
+              <a href="#"><span>4.3</span> Functionalitate 3</a>
+            </li>
+            <li>
+              <a href="#"><span>4.4 </span> SISTEM FILTRARE CRITERII</a>
+            </li>
+          </ol>
+        </li>
+
+        <!-- 5 -->
+        <li>
+          <a href="#"><span>5. </span>Alte cerinte</a>
+          <ol role="directory">
+            <li>
+              <a href="#"><span>5.1 </span> Cerinta de performanta</a>
+            </li>
+            <li>
+              <a href="#"><span>5.2 </span> Cerinte de securitate</a>
+            </li>
+          </ol>
+        </li>
+
+        <!-- 6 -->
+        <li>
+          <a href="#"><span>6. </span>Autori</a>
+        </li>
+
+        <!-- 7 -->
+        <li>
+          <a href="#"><span>7. </span>Bibliografie</a>
+        </li>
+      </ol>
     </div>
-
-
 
     <!-- section1 -->
     <section id="">
-        <h2>1. Introducere</h2>
-        <!-- section 1.1 -->
-        <section id="">
-            <h3>1.1. Scopul documentului</h3>
-            <p>
-                Scopul acestui document este de a prezenta proiectul Unemployment Explorer atat ca produs, audienta
-                caruia de adreseaza si functionalitati de care dispune, cat si ca proiect din punct de vedere
-                tehnic.
-            </p>
-        </section>
+      <h2>1. Introducere</h2>
+      <!-- section 1.1 -->
+      <section id="">
+        <h3>1.1. Scopul documentului</h3>
+        <p>
+          Scopul acestui document este de a prezenta proiectul Unemployment
+          Explorer atat ca produs, audienta caruia de adreseaza si
+          functionalitati de care dispune, cat si ca proiect din punct de vedere
+          tehnic.
+        </p>
+      </section>
 
-        <!-- section 1.2 -->
-        <section id="">
-            <h3>1.2. Publicul destinat si sugestii de lectura</h3>
-            <p>
-                Publicul destinat acestui document sunt utilizatorii finali ai aplicatiei, dezvoltatorii si
-                administratorii sistemului. Pentru a intelege functionalitatile aplicatiei nu sunt necesare 
-                cunostinte prealabile, insa pentru a intelege modul lor de implementare se recomanda un
-                background in domeniul programarii web.
-            </p>
-        </section>
-        
-        <!-- section 1.3 -->
-        <section id="">
-            <h3>1.3. Scopul proiectului</h3>
-            <p>
-                Scopul proiectului este de a oferi utilizatorilor posibilitatea de a analiza datele privind
-                somajul din Romania folosind un sistem de selectie si filtrare multi-criteriala.
-            </p>
-        </section>
+      <!-- section 1.2 -->
+      <section id="">
+        <h3>1.2. Publicul destinat si sugestii de lectura</h3>
+        <p>
+          Publicul destinat acestui document sunt utilizatorii finali ai
+          aplicatiei, dezvoltatorii si administratorii sistemului. Pentru a
+          intelege functionalitatile aplicatiei nu sunt necesare cunostinte
+          prealabile, insa pentru a intelege modul lor de implementare se
+          recomanda un background in domeniul programarii web.
+        </p>
+      </section>
+
+      <!-- section 1.3 -->
+      <section id="">
+        <h3>1.3. Scopul proiectului</h3>
+        <p>
+          Scopul proiectului este de a oferi utilizatorilor posibilitatea de a
+          analiza datele privind somajul din Romania folosind un sistem de
+          selectie si filtrare multi-criteriala.
+        </p>
+      </section>
     </section>
 
     <!-- section2 -->
     <section id="">
-        <h2>2. Descriere</h2>
+      <h2>2. Descriere</h2>
+      <section id="">
+        <h3>2.1. Perspectiva produsului</h3>
+        <p>
+          Aceasta aplicatie va oferi posibilitatea utilizatorilor sa vizualizeze
+          datele despre situatia șomerilor din România si exportarea lor in mai
+          multe moduri (SVG, CSV, PDF), pe baza unor filtre alese de ei, in
+          crearea ei fiind folosite cunostinte dobandite la materia Tehnologii
+          Web.
+        </p>
+      </section>
+      <section id="">
+        <h3>2.2. Cerinte principale</h3>
         <section id="">
-            <h3>2.1. Perspectiva produsului</h3>
-            <p>
-                Aceasta aplicatie va oferi posibilitatea utilizatorilor sa vizualizeze
-                datele despre situatia șomerilor din România si exportarea lor in mai multe moduri (SVG, CSV, PDF), 
-                pe baza unor filtre alese de ei, in crearea ei fiind folosite cunostinte
-                dobandite la materia Tehnologii Web.
-            </p>
-        </section>
-        <section id="">
-            <h3>2.2. Cerinte principale</h3>
-            <section id="">
-                <h4>2.2.1 Statistici date somaj</h4>
-                <p>
-                    Utilizatorii vor putea sa vizualizeze statistici despre somaj cum ar fi 
-                    rata somajului sau numarul total de someri pe anumite perioade specificate
-                    si pe judete.
-                </p>
-            </section>
-
-            <section id="">
-                <h4>2.2.2 Vizualizare grafica a datelor</h4>
-                <p>
-                    Datele vor putea fi vizualizate sub forma unor grafice cum ar fi pie chart, bar chart sau line chart.
-                    Deasemenea va exista si o harta interactiva a Romaniei cu situatia somajului pe fiecare judet.
-                </p>     
-            </section>
-
-            <section id="">
-                <h4>2.2.3 Filtrare si comparare multi-criteriala</h4>
-                <p>
-                    Vizualizarea datelor se va putea face aplicand anumite filtre cum ar fi: judetul, luna, anul, genul, mediul,
-                    varsta, educatia si indemnizatia. La dorinta utilizatorului se vor putea face comparatii cum ar fi:
-                     femei vs barbati, urban vs rural, comparatia mai multor judete, luni sau ani s.a.
-                </p> 
-            </section>
-
-            <section id="">
-                <h4>2.2.4 Descarcare a datelor</h4>
-                <p>
-                    Datele vor putea fi descarcate ca CSV, SVG (format grafic) sau PDF (format grafic si/sau tabelar). 
-                </p>
-            </section>
-
-            <section id="">
-                <h4>2.2.5 Autentificare utilizatori</h4>
-                <p>
-                    Pentru a utiliza aplicatia utilizatorii isi vor crea un cont si se vor putea autentifica daca au deja unul.
-                </p>
-                
-            </section>
-
-            <section id="">
-                <h4>2.2.6 Sistem de abonare</h4>
-                <p>
-                    Utilizarea aplicatiei este conditionata de un abonament lunar, primele 7 zile fiind gratuite.
-                </p>
-            </section>
+          <h4>2.2.1 Statistici date somaj</h4>
+          <p>
+            Utilizatorii vor putea sa vizualizeze statistici despre somaj cum ar
+            fi rata somajului sau numarul total de someri pe anumite perioade
+            specificate si pe judete.
+          </p>
         </section>
 
         <section id="">
-            <h3>2.3. Categorii si utilizatori</h3>
-            <p>
-                Utilizatorii sunt impartiti in urmatoarele 3 categorii: end-user, administrator si developer.
-            </p>
+          <h4>2.2.2 Vizualizare grafica a datelor</h4>
+          <p>
+            Datele vor putea fi vizualizate sub forma unor grafice cum ar fi pie
+            chart, bar chart sau line chart. Deasemenea va exista si o harta
+            interactiva a Romaniei cu situatia somajului pe fiecare judet.
+          </p>
         </section>
 
         <section id="">
-            <h3>2.4. Mediu de operare</h3>
-            <p>
-                Aplicatia va putea fi folosita pe orice calculator, tableta sau telefon cu conditia ca acestea 
-                sa utilizeze un browser web unde va rula aplicatia si sa existe o conexiune la internet. 
-            </p>
+          <h4>2.2.3 Filtrare si comparare multi-criteriala</h4>
+          <p>
+            Vizualizarea datelor se va putea face aplicand anumite filtre cum ar
+            fi: judetul, luna, anul, genul, mediul, varsta, educatia si
+            indemnizatia. La dorinta utilizatorului se vor putea face comparatii
+            cum ar fi: femei vs barbati, urban vs rural, comparatia mai multor
+            judete, luni sau ani s.a.
+          </p>
         </section>
 
         <section id="">
-            <h3>2.5. Ipoteze si dependente</h3>
-            <section id="">
-                <h4>2.5.1 Chart JS</h4>
-                <p>
-                    Pentru vizulizarea datelor sub forma de grafice se va utiliza Chart JS, libaria fiind incarcata
-                    cu ajutorul unui CDN.
-                </p>
-            </section>
-            <section id="">
-                <h4>2.5.2 Stripe</h4>
-                <p>
-                    Stripe este un procesator de plata online ce ofera o modalitate simpla și sigura de a accepta plati cu cardul, achizitionarea abonamentelor și facturare.
-                     In cadrul aplicatiei este utilizat pentru plata abonamentelor ce ofera acces utilizatorilor la platforma UnX.
-                </p>
-            </section>
+          <h4>2.2.4 Descarcare a datelor</h4>
+          <p>
+            Datele vor putea fi descarcate ca CSV, SVG (format grafic) sau PDF
+            (format grafic si/sau tabelar).
+          </p>
         </section>
+
+        <section id="">
+          <h4>2.2.5 Autentificare utilizatori</h4>
+          <p>
+            Pentru a utiliza aplicatia utilizatorii isi vor crea un cont si se
+            vor putea autentifica daca au deja unul.
+          </p>
+        </section>
+
+        <section id="">
+          <h4>2.2.6 Sistem de abonare</h4>
+          <p>
+            Utilizarea aplicatiei este conditionata de un abonament lunar,
+            primele 7 zile fiind gratuite.
+          </p>
+        </section>
+      </section>
+
+      <section id="">
+        <h3>2.3. Categorii si utilizatori</h3>
+        <p>
+          Utilizatorii sunt impartiti in urmatoarele 3 categorii: end-user,
+          administrator si developer.
+        </p>
+      </section>
+
+      <section id="">
+        <h3>2.4. Mediu de operare</h3>
+        <p>
+          Aplicatia va putea fi folosita pe orice calculator, tableta sau
+          telefon cu conditia ca acestea sa utilizeze un browser web unde va
+          rula aplicatia si sa existe o conexiune la internet.
+        </p>
+      </section>
+
+      <section id="">
+        <h3>2.5. Ipoteze si dependente</h3>
+        <section id="">
+          <h4>2.5.1 Chart JS</h4>
+          <p>
+            Pentru vizulizarea datelor sub forma de grafice se va utiliza Chart
+            JS, libaria fiind incarcata cu ajutorul unui CDN.
+          </p>
+        </section>
+        <section id="">
+          <h4>2.5.2 Stripe</h4>
+          <p>
+            Stripe este un procesator de plata online ce ofera o modalitate
+            simpla și sigura de a accepta plati cu cardul, achizitionarea
+            abonamentelor și facturare. In cadrul aplicatiei este utilizat
+            pentru plata abonamentelor ce ofera acces utilizatorilor la
+            platforma UnX.
+          </p>
+        </section>
+      </section>
     </section>
 
     <!-- section3 -->
     <section id="">
-        <h2>3. Cerinte de interfata externa</h2>
-        <!-- section 3.1 -->
+      <h2>3. Cerinte de interfata externa</h2>
+      <!-- section 3.1 -->
+      <section id="">
+        <h3>3.1. Interfata userului</h3>
+
+        <!-- section 3.1.1 -->
         <section id="">
-            <h3>3.1. Interfata userului</h3>
-
-            <!-- section 3.1.1 -->
-            <section id="">
-                <h4>3.1.1. HTML</h4>
-                <p>
-                    HTML este limbajul de baza folosit pentru a crea paginile web. 
-                    Acesta reprezinta structura paginii, adica elementele pe care le vom folosi
-                    pentru a afisa informatiile intr-un mod usor de inteles pentru utilizatorul
-                    obisnuit. Orice browser modern poate citi codul HTML si il poate interpreta
-                    fara a fi nevoie de alte programe.
-                </p>
-            </section>
-
-            <!-- section 3.1.2 -->
-            <section id="">
-                <h4>3.1.2. CSS</h4>
-                <p>
-                    CSS este limbajul folosit pentru a crea stilul paginilor web. Acesta
-                    reprezinta aspectul paginii, adica cum vor arata elementele din HTML.
-                    Este de asemenea un limbaj cu suport nativ in browser.
-                </p>
-            </section>
-
-            <!-- section 3.1.3 -->
-            <section id="">
-                <h4>3.1.3. SVG</h4>
-                <p>
-                    SVG este limbajul folosit pentru a crea imagini vectoriale. Acestea
-                    sunt imagini care pot fi scalate la orice dimensiune fara a pierde
-                    calitatea si pot fi randate in HTML.
-                </p>
-                </section> 
-
-            <!-- section 3.1.4 -->
-            <section id="">
-                <h4>3.1.4. JavaScript</h4>
-                <p>
-                    JavaScript este limbajul folosit pentru a crea functionalitati
-                    interactive in paginile web. Acesta este folosit pentru a crea
-                    efecte de animatie, pentru a crea pagini care se incarca in mod
-                    asincron, pentru a crea pagini care se pot misca in functie de
-                    pozitia cursorului sau a tastaturii, etc. Un alt rol important 
-                    este posibilitatea de a face apeluri asincrone catre server.
-                </p>
-            </section>
+          <h4>3.1.1. HTML</h4>
+          <p>
+            HTML este limbajul de baza folosit pentru a crea paginile web.
+            Acesta reprezinta structura paginii, adica elementele pe care le vom
+            folosi pentru a afisa informatiile intr-un mod usor de inteles
+            pentru utilizatorul obisnuit. Orice browser modern poate citi codul
+            HTML si il poate interpreta fara a fi nevoie de alte programe.
+          </p>
         </section>
 
-        <!-- section 3.2 -->
+        <!-- section 3.1.2 -->
         <section id="">
-            <h3>3.2. Interfata software</h3>
-
-            <!-- section 3.2.1 -->
-            <section id="">
-                <h4>3.2.1. Node.js</h4>
-                <p>
-                    Node.js este un runtime pentru JavaScript. Acesta permite rularea
-                    codului JavaScript in afara browserului, pe server. Acest lucru
-                    permite dezvoltarea de aplicatii web care ruleaza pe server si
-                    care pot fi accesate de orice browser.
-                </p>
-            </section>
-
-            <!-- section 3.2.2 -->
-            <section id="">
-                <h4>3.2.2. PostgreSQL</h4>
-                <p>
-                    PostgreSQL este un sistem de baze de date relationale. Acesta
-                    permite stocarea datelor in tabele, care sunt definite de utilizator.
-                </p>
-            </section>
-            
-            <!-- section 3.2.3 -->
-            <section id="">
-                <h4>3.2.3. Redis</h4>
-                <p>
-                    Redis este o bază de date în memorie astfel toate datele sunt stocate în memorie RAM,
-                    ceea ce îi permite să ofere performanțe de citire și scriere extrem de rapide. 
-                    Redis este un sistem de stocare cheie-valoare, ceea ce înseamnă
-                    că datele sunt stocate sub forma de perechi de chei și valori.
-                </p>
-            </section>
-
-            <!-- section 3.2.4 -->
-            <section id="">
-                <h4>3.2.4. JWT</h4>
-                <p>
-                    JWT (JSON Web Token) este un standard pentru autorizarea unui utilizator
-                    într-o aplicație web. Acesta este folosit pentru a crea tokeni care pot fi
-                    folosiți pentru a verifica identitatea utilizatorului.
-                </p>
-            </section>
+          <h4>3.1.2. CSS</h4>
+          <p>
+            CSS este limbajul folosit pentru a crea stilul paginilor web. Acesta
+            reprezinta aspectul paginii, adica cum vor arata elementele din
+            HTML. Este de asemenea un limbaj cu suport nativ in browser.
+          </p>
         </section>
 
-        <!-- section 3.3 -->
+        <!-- section 3.1.3 -->
         <section id="">
-            <h3>3.3. Interfata comunicare</h3>
-
-            <!-- section 3.3.1 -->
-            <section id="">
-                <h4>3.3.1. HTTPS</h4>
-                <p>
-                    HTTPS (HyperText Transfer Protocol Secure) este protocolul folosit pentru a
-                    comunica securizat intre client si server. Versiunea cea mai noua de HTTPS
-                    este HTTPS/3 (HTTP over QUIC) si pentru comunicarea sigura se foloseste
-                    protocolul TLS (Transport Layer Security) ajuns la versiunea 1.3.
-                </p>
-            </section>
-
-            <!-- section 3.3.2 -->
-            <section id="">
-                <h4>3.3.2. GraphQL</h4>
-                <p>
-                    GraphQL este un limbaj de interogare pentru API-uri. Acesta permite
-                    clientilor sa faca cereri catre server pentru a obtine datele dorite.
-                    GraphQL este un limbaj declarativ, ceea ce inseamna ca clientul specifica
-                    ce date doreste si nu cum acestea trebuie obtinute.
-                </p>
+          <h4>3.1.3. SVG</h4>
+          <p>
+            SVG este limbajul folosit pentru a crea imagini vectoriale. Acestea
+            sunt imagini care pot fi scalate la orice dimensiune fara a pierde
+            calitatea si pot fi randate in HTML.
+          </p>
         </section>
 
-        <!-- section 4 -->
+        <!-- section 3.1.4 -->
         <section id="">
-            <h3>Functionalitati</h3>
-
-            <!-- section 4.1 -->
-            <section id="">
-                <h4>4.1. Statistica si vizualizare date somaj</h4>
-                <p>
-                    Datele despre somaj sunt extrase de pe site-ul <i>www.data.gov.ro</i>, iar acestea
-                    sunt stocate intr-un format CSV greu de utilizat in practica pentru diverse comparatii.
-                    Pentru a facilita utilizarea acestor date, acestea vor fi preluate si stocate intr-o baza
-                    relationala ce permite interogari complexe ce pot agrega datele in functie de anumite criterii.
-                </p>
-                <div>
-                    Urmatoarele forme de vizualizare grafica sunt disponibile utilizatorului:
-                    <ul>
-                        <li>
-                            <p>Vizualizare cartografica</p>
-                            <img width="50%" src="./images/cartografic.png" alt="cartografic">
-                        </li>
-                        <li>
-                            <p>Vizualizare line graph</p>
-                            <img width="100%" src="./images/linegraph.png" alt="linegraph">
-                        </li>
-                        <li>
-                            <p>Vizualizare pie chart</p>
-                            <img width="50%" src="./images/piechart.png" alt="piechart">
-                        </li>
-                        <li>
-                            <p>Vizualizare bar chart</p>
-                            <img width="100%" src="./images/barplot.png" alt="barchart">
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- section 4.2  -->
-            <section id="">
-                <h4>4.2. Filtrare si comparare multi-criteriala</h4>
-                <p>
-                    Filtrele sunt urmatoarele:
-
-                </p>
-                <div>
-                    
-                </div>
+          <h4>3.1.4. JavaScript</h4>
+          <p>
+            JavaScript este limbajul folosit pentru a crea functionalitati
+            interactive in paginile web. Acesta este folosit pentru a crea
+            efecte de animatie, pentru a crea pagini care se incarca in mod
+            asincron, pentru a crea pagini care se pot misca in functie de
+            pozitia cursorului sau a tastaturii, etc. Un alt rol important este
+            posibilitatea de a face apeluri asincrone catre server.
+          </p>
         </section>
-</body>
+      </section>
+
+      <!-- section 3.2 -->
+      <section id="">
+        <h3>3.2. Interfata software</h3>
+
+        <!-- section 3.2.1 -->
+        <section id="">
+          <h4>3.2.1. Node.js</h4>
+          <p>
+            Node.js este un runtime pentru JavaScript. Acesta permite rularea
+            codului JavaScript in afara browserului, pe server. Acest lucru
+            permite dezvoltarea de aplicatii web care ruleaza pe server si care
+            pot fi accesate de orice browser.
+          </p>
+        </section>
+
+        <!-- section 3.2.2 -->
+        <section id="">
+          <h4>3.2.2. PostgreSQL</h4>
+          <p>
+            PostgreSQL este un sistem de baze de date relationale. Acesta
+            permite stocarea datelor in tabele, care sunt definite de
+            utilizator.
+          </p>
+        </section>
+
+        <!-- section 3.2.3 -->
+        <section id="">
+          <h4>3.2.3. Redis</h4>
+          <p>
+            Redis este o bază de date în memorie astfel toate datele sunt
+            stocate în memorie RAM, ceea ce îi permite să ofere performanțe de
+            citire și scriere extrem de rapide. Redis este un sistem de stocare
+            cheie-valoare, ceea ce înseamnă că datele sunt stocate sub forma de
+            perechi de chei și valori.
+          </p>
+        </section>
+
+        <!-- section 3.2.4 -->
+        <section id="">
+          <h4>3.2.4. JWT</h4>
+          <p>
+            JWT (JSON Web Token) este un standard pentru autorizarea unui
+            utilizator într-o aplicație web. Acesta este folosit pentru a crea
+            tokeni care pot fi folosiți pentru a verifica identitatea
+            utilizatorului.
+          </p>
+        </section>
+      </section>
+
+      <!-- section 3.3 -->
+      <section id="">
+        <h3>3.3. Interfata comunicare</h3>
+
+        <!-- section 3.3.1 -->
+        <section id="">
+          <h4>3.3.1. HTTPS</h4>
+          <p>
+            HTTPS (HyperText Transfer Protocol Secure) este protocolul folosit
+            pentru a comunica securizat intre client si server. Versiunea cea
+            mai noua de HTTPS este HTTPS/3 (HTTP over QUIC) si pentru
+            comunicarea sigura se foloseste protocolul TLS (Transport Layer
+            Security) ajuns la versiunea 1.3.
+          </p>
+        </section>
+
+        <!-- section 3.3.2 -->
+        <section id="">
+          <h4>3.3.2. GraphQL</h4>
+          <p>
+            GraphQL este un limbaj de interogare pentru API-uri. Acesta permite
+            clientilor sa faca cereri catre server pentru a obtine datele
+            dorite. GraphQL este un limbaj declarativ, ceea ce inseamna ca
+            clientul specifica ce date doreste si nu cum acestea trebuie
+            obtinute.
+          </p>
+        </section>
+      </section>
+    </section>
+
+    <!-- section 4 -->
+    <section id="">
+      <h2>4. Functionalitati</h2>
+
+      <!-- section 4.1 -->
+      <section id="">
+        <h3>4.1. Statistica si vizualizare date somaj</h3>
+        <p>
+          Datele despre somaj sunt extrase de pe site-ul
+          <i>www.data.gov.ro</i>, iar acestea sunt stocate intr-un format CSV
+          greu de utilizat in practica pentru diverse comparatii. Pentru a
+          facilita utilizarea acestor date, acestea vor fi preluate si stocate
+          intr-o baza relationala ce permite interogari complexe ce pot agrega
+          datele in functie de anumite criterii.
+        </p>
+        <div>
+          Urmatoarele forme de vizualizare grafica sunt disponibile
+          utilizatorului:
+          <ul>
+            <li>
+              <p>Vizualizare cartografica</p>
+              <img
+                width="50%"
+                src="./images/cartografic.png"
+                alt="cartografic"
+              />
+            </li>
+            <li>
+              <p>Vizualizare line graph</p>
+              <img width="100%" src="./images/linegraph.png" alt="linegraph" />
+            </li>
+            <li>
+              <p>Vizualizare pie chart</p>
+              <img width="50%" src="./images/piechart.png" alt="piechart" />
+            </li>
+            <li>
+              <p>Vizualizare bar chart</p>
+              <img width="100%" src="./images/barplot.png" alt="barchart" />
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- section 4.2  -->
+      <section id="">
+        <h3>4.2. Filtrare si comparare multi-criteriala</h3>
+        <p>Sistemul de filtrare al criteriilor este in 3 pasi:</p>
+        <ul>
+            <li>Alegerea judetului, utilizandu-se o harta a Romaniei in format SVG.</li>
+            <li>Alegerea perioadei utilizandu-se un date picker.</li>
+            <li>Alegerea unui filtru cum ar fi numarul total de someri, de femei, de barbati, someri indemnizati,
+                someri neindemnizati, someri din mediul urban, someri din mediul rural, someri dintr-o categorie de varsta, 
+                someri cu un anumit nivel de educatie. Categoriile de someri care vor putea fi comparate si care sunt 
+                compatibile din punct de vedere al seturilor de date disponibile sunt: 
+                barbati vs femei (numar total sau rata somajului), indemnizati vs neindemnizati, rural vs urban, categorii de varsta, 
+                nivele de educatie.
+            </li>
+        </ul>
+      </section>
+
+      <!-- section 4.3  -->
+      <section id="">
+        <h3>4.3. Descarcare a datelor</h3>
+        <p>Dupa generarea graficelor, utilizatorul poate alege pe care dintre ele doreste sa le descarce si sub ce format, formatele 
+            puse la dispozitie fiind: PDF care poate contine atat reprezentarea grafica a graficelor cat si reprezentarea lor tabelara, 
+            SVG care va contine reprezentarea lor in grafica vectoriala si formatul CSV.
+        </p>
+      </section>
+
+       <!-- section 4.4  -->
+       <section id="">
+        <h3>4.4. Autentificarea utilizatorilor si sistemul de abonare</h3>
+        <p></p>
+      </section>
+    </section>
+
+     <!-- section 5 -->
+     <section id="">
+        <h2>5. Autori</h2>
+        <ul>
+            <li typeof="sa:ContributorRole" property="schema:author">
+                <span typeof="schema:Person">
+                    <meta property="schema:givenName" content="Vladimir">
+                    <meta property="schema:familyName" content="Anfimov">
+                    <span property="schema:name">Vladimir Anfimov</span>
+                </span>
+            </li>
+            <li typeof="sa:ContributorRole" property="schema:author">
+                <span typeof="schema:Person">
+                    <meta property="schema:givenName" content="Samuel">
+                    <meta property="schema:additionalName" content="Ionuț">
+                    <meta property="schema:familyName" content="Lazurcă">
+                    <span property="schema:name">Samuel-Ionuț Lazurcă</span>
+                </span>
+            </li>
+        </ul>
+    </section>
+
+     <!-- section 6 -->
+     <section id="">
+        <h2>6. Bibliografie</h2>
+        
+        <dl>
+            <dt id="ref-SHTML"> SHTML </dt>
+            <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://w3c.github.io/scholarly-html/">
+                <cite property="schema:name">
+                    <a href="https://w3c.github.io/scholarly-html/"> Scholarly HTML </a>
+                </cite>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt id="ref-INFO-UAIC"> INFO-UAIC </dt>
+            <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/">
+                <cite property="schema:name">
+                    <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/"> Cursul de Tehnologii Web </a>
+                </cite>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt id="ref-INFO-UAIC-LAB"> INFO-UAIC </dt>
+            <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://fii-tw.notion.site/TEHNOLOGII-WEB-3ce031995e2841de872a67896b8ad15c">
+                <cite property="schema:name">
+                    <a href="https://fii-tw.notion.site/TEHNOLOGII-WEB-3ce031995e2841de872a67896b8ad15c"> Laboratorul de Tehnologii Web </a>
+                </cite>
+            </dd>
+        </dl>
+    </section> 
+    
+  </body>
 </html>
