@@ -1,2 +1,6 @@
 .vscode
 src/api/core/node_modules
+src/api/core/.env
+
+src/api/auth/node_modules
+src/api/auth/.env

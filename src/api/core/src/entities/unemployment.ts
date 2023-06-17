@@ -1,0 +1,33 @@
+export interface IUnemployment {
+  id: number;
+  id_county: number;
+  period: Date;
+  total: number | null;
+  females: number | null;
+  males: number | null;
+  paid: number | null;
+  unpaid: number | null;
+  unemployment_rate: number | null;
+  females_unemployment_rate: number | null;
+  males_unemployment_rate: number | null;
+  no_studies: number | null;
+  primar: number | null;
+  gimnazial: number | null;
+  highschool: number | null;
+  post_highschool: number | null;
+  professional: number | null;
+  universitar: number | null;
+  under25: number | null;
+  between25_29: number | null;
+  between30_39: number | null;
+  between40_49: number | null;
+  between50_55: number | null;
+  over55: number | null;
+  urban: number | null;
+  rural: number | null;
+  females_urban: number | null;
+  females_rural: number | null;
+  males_urban: number | null;
+  males_rural: number | null;
+  county_name: string;
+}
