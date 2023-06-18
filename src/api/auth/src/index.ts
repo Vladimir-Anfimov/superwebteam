@@ -7,10 +7,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   formatError: (err) => {
-    console.log(`Error ${JSON.stringify(err)}`);
-    if (err instanceof BaseCustomException) {
-      return err.convert_into_http_error();
-    }
+    console.log(`Error ${JSON.stringify(err)} `);
+
     return err;
   },
 });

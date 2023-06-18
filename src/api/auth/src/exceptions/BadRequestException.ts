@@ -2,7 +2,7 @@ import { ExceptionResponseDto } from "../dtos/exception/ExceptionResponseDto";
 import { BaseCustomException } from "./BaseCustomException";
 
 export class BadRequestException extends BaseCustomException {
-  public static readonly HTTP_ERROR_CODE = 400;
+  public static readonly HTTP_ERROR_CODE = "BAD_REQUEST";
 
   constructor(message: string) {
     super(message);

@@ -51,7 +51,8 @@ export class UserService {
 
     const token = await jwt.sign(
       { id: createdUser.id, roles: [] },
-      process.env.JWT_KEY!
+      process.env.JWT_KEY!,
+      { expiresIn: process.env.JWT_EXPIRES_IN! }
     );
 
     return new UserRegisterResponseDto(token, refreshToken.value);
