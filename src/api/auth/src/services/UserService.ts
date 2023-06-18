@@ -48,13 +48,7 @@ export class UserService {
       RefreshToken.create(createdUser.id)
     );
 
-    const roles = await RolesDao.getRolesByUserId(createdUser.id);
-
-    const token = await jwt.sign(
-      { id: createdUser.id, roles },
-      process.env.JWT_KEY!,
-      { expiresIn: process.env.JWT_EXPIRES_IN! }
-    );
+    const token = await this.generateToken(createdUser.id);
 
     return new UserRegisterResponseDto(token, refreshToken.value);
   }
@@ -80,11 +74,7 @@ export class UserService {
       RefreshToken.create(user.id)
     );
 
-    const roles = await RolesDao.getRolesByUserId(user.id);
-
-    const token = await jwt.sign({ id: user.id, roles }, process.env.JWT_KEY!, {
-      expiresIn: process.env.JWT_EXPIRES_IN!,
-    });
+    const token = await this.generateToken(user.id);
 
     return new UserLoginResponseDto(token, refreshToken.value);
   }
@@ -96,13 +86,15 @@ export class UserService {
       throw new BadRequestException("Invalid refresh token");
     }
 
-    const roles = await RolesDao.getRolesByUserId(refreshTokenFromDb.id_user);
+    return this.generateToken(refreshTokenFromDb.id_user);
+  }
 
-    const token = await jwt.sign(
-      { id: refreshTokenFromDb.id_user, roles },
-      process.env.JWT_KEY!,
-      { expiresIn: process.env.JWT_EXPIRES_IN! }
-    );
+  private static async generateToken(id_user: number): Promise<string> {
+    const roles = await RolesDao.getRolesByUserId(id_user);
+
+    const token = await jwt.sign({ id: id_user, roles }, process.env.JWT_KEY!, {
+      expiresIn: process.env.JWT_EXPIRES_IN!,
+    });
 
     return token;
   }
