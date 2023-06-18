@@ -1,18 +1,17 @@
-import { ApolloServer, gql } from "apollo-server";
+import { ApolloServer } from "apollo-server";
+import { BaseCustomException } from "./exceptions/BaseCustomException";
+import { typeDefs } from "./schema/typeDefs";
+import { resolvers } from "./schema/resolvers";
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  formatError: (err) => {
+    console.log(`Error ${JSON.stringify(err)} `);
 
-const resolvers = {
-  Query: {
-    hello: () => "Hello, world!",
+    return err;
   },
-};
-
-const server = new ApolloServer({ typeDefs, resolvers });
+});
 
 server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
