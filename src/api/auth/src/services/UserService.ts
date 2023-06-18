@@ -12,6 +12,7 @@ import { NotFoundException } from "../exceptions/NotFoundException";
 import { EmailValidator } from "../validators/EmailValidator";
 import { RefreshTokenDao } from "../daos/RefreshTokenDao";
 import { RefreshToken } from "../entities/RefreshToken";
+import { RolesDao } from "../daos/RolesDao";
 
 dotenv.config();
 
@@ -47,10 +48,10 @@ export class UserService {
       RefreshToken.create(createdUser.id)
     );
 
-    console.warn(process.env.JWT_KEY);
+    const roles = await RolesDao.getRolesByUserId(createdUser.id);
 
     const token = await jwt.sign(
-      { id: createdUser.id, roles: [] },
+      { id: createdUser.id, roles },
       process.env.JWT_KEY!,
       { expiresIn: process.env.JWT_EXPIRES_IN! }
     );
@@ -79,9 +80,9 @@ export class UserService {
       RefreshToken.create(user.id)
     );
 
-    console.log(process.env.JWT_KEY);
+    const roles = await RolesDao.getRolesByUserId(user.id);
 
-    const token = await jwt.sign({ id: user.id }, process.env.JWT_KEY!, {
+    const token = await jwt.sign({ id: user.id, roles }, process.env.JWT_KEY!, {
       expiresIn: process.env.JWT_EXPIRES_IN!,
     });
 
@@ -95,9 +96,12 @@ export class UserService {
       throw new BadRequestException("Invalid refresh token");
     }
 
+    const roles = await RolesDao.getRolesByUserId(refreshTokenFromDb.id_user);
+
     const token = await jwt.sign(
-      { id: refreshTokenFromDb.id_user, roles: [] },
-      process.env.JWT_KEY!
+      { id: refreshTokenFromDb.id_user, roles },
+      process.env.JWT_KEY!,
+      { expiresIn: process.env.JWT_EXPIRES_IN! }
     );
 
     return token;
