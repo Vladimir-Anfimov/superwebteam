@@ -81,7 +81,9 @@ export class UserService {
 
     console.log(process.env.JWT_KEY);
 
-    const token = await jwt.sign({ id: user.id }, process.env.JWT_KEY!);
+    const token = await jwt.sign({ id: user.id }, process.env.JWT_KEY!, {
+      expiresIn: process.env.JWT_EXPIRES_IN!,
+    });
 
     return new UserLoginResponseDto(token, refreshToken.value);
   }
