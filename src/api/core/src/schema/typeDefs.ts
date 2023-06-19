@@ -37,5 +37,31 @@ export const typeDefs = gql`
 
   type Query {
     unemploymentData: [Unemployment]
+    getCharts (input : ChartsInput) : [ChartsOutput] 
+  }
+
+  input DateTime {
+    year : Int!
+    month : Int!
+  }
+
+  type Dataset {
+    label : String!
+    data : [Float]
+  }
+
+  type ChartsOutput {
+    chartType : String!
+    labels : [String]!
+    datasets : [Dataset]!
+  }
+
+  scalar Date
+
+  input ChartsInput {
+    counties : [Int]!
+    startDate : Date!
+    endDate : Date!
+    criteria : [String]!
   }
 `;
