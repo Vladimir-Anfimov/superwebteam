@@ -11,6 +11,11 @@ const server = new ApolloServer({
     allowedHeaders: ["Content-Type", "Authorization"],
     maxAge: 86400,
   },
+  formatError: (err) => {
+    console.log(`Error ${JSON.stringify(err)} `);
+
+    return err;
+  },
 });
 
 server.listen().then(({ url }) => {

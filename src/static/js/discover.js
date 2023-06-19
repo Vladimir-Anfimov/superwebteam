@@ -2,7 +2,74 @@
 
 const ctx1 = document.getElementById("lineChart");
 
+const Type = "line";
+const Labels = [
+  "2 2022",
+  "3 2022",
+  "4 2022",
+  "5 2022",
+  "6 2022",
+  "7 2022",
+  "8 2022",
+  "9 2022",
+  "10 2022"
+];
+
+const Datasets = [
+  {
+    "label": "females",
+    "data": [
+      1343,
+      1332,
+      1344,
+      1206,
+      1219,
+      1225,
+      1268,
+      1232,
+      1228
+    ]
+  },
+  {
+    "label": "males",
+    "data": [
+      1326,
+      1291,
+      1298,
+      1150,
+      1082,
+      1086,
+      1110,
+      1122,
+      1120
+    ]
+  }
+];
+
 new Chart(ctx1, {
+  type: Type,
+  data: {
+    labels: Labels,
+    datasets: Datasets,
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: true,
+        text: "",
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+});
+
+/*new Chart(ctx1, {
   type: "line",
   data: {
     labels: [
@@ -61,7 +128,7 @@ new Chart(ctx1, {
       },
     },
   },
-});
+});*/
 
 const ctx3 = document.getElementById("pieChart");
 
