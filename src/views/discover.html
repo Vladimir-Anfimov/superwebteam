@@ -12,28 +12,7 @@
 
   <body>
     <!-- SIDEBAR -->
-    <div id="sidebar-element" class="sidebar">
-      <img class="sidebar-close" src="../static/images/close.png" alt="close" />
-      <img class="sidebar-logo" src="../static/images/logo.png" alt="logo" />
-      <ul>
-        <li onclick="location.href = `./index.html`">
-          <img src="../static/images/house.png" alt="house" />
-          Get Started
-        </li>
-        <li onclick="location.href = `./discover.html`">
-          <img src="../static/images/magnifying-glass.png" alt="house" />
-          Discover
-        </li>
-        <li onclick="location.href = `./profile.html`">
-          <img src="../static/images/user.png" alt="house" />
-          Profile
-        </li>
-        <li onclick="location.href = `./login.html`">
-          <img src="../static/images/logout.png" alt="house" />
-          Logout
-        </li>
-      </ul>
-    </div>
+    <div id="sidebar-element" class="sidebar"></div>
 
     <!-- MAIN -->
     <main>
@@ -387,7 +366,38 @@
                 </svg>
               </div>
 
-              <div class="selected-items">
+              <div
+                class="selected-items"
+                style="display: flex; flex-wrap: wrap"
+              >
+                <div class="item">
+                  <span>Bucuresti</span>
+                  <img src="../static/images/close.png" alt="close" />
+                </div>
+                <div class="item">
+                  <span>Bucuresti</span>
+                  <img src="../static/images/close.png" alt="close" />
+                </div>
+                <div class="item">
+                  <span>Bucuresti</span>
+                  <img src="../static/images/close.png" alt="close" />
+                </div>
+                <div class="item">
+                  <span>Bucuresti</span>
+                  <img src="../static/images/close.png" alt="close" />
+                </div>
+                <div class="item">
+                  <span>Bucuresti</span>
+                  <img src="../static/images/close.png" alt="close" />
+                </div>
+                <div class="item">
+                  <span>Bucuresti</span>
+                  <img src="../static/images/close.png" alt="close" />
+                </div>
+                <div class="item">
+                  <span>Bucuresti</span>
+                  <img src="../static/images/close.png" alt="close" />
+                </div>
                 <div class="item">
                   <span>Bucuresti</span>
                   <img src="../static/images/close.png" alt="close" />
@@ -449,6 +459,7 @@
       </div>
     </main>
 
+    <script src="../static/js/layout/layoutManager.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../static/js/main.js"></script>
     <script src="../static/js/discover.js"></script>

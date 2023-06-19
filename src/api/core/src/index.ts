@@ -1,6 +1,9 @@
 import { ApolloServer } from "apollo-server";
 import { typeDefs } from "./schema/typeDefs";
 import { resolvers } from "./schema/resolvers";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const server = new ApolloServer({
   typeDefs,
@@ -18,6 +21,6 @@ const server = new ApolloServer({
   },
 });
 
-server.listen().then(({ url }) => {
+server.listen({ port: process.env.SERVER_PORT! }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
