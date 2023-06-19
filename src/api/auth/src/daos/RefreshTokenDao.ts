@@ -16,7 +16,8 @@ export class RefreshTokenDao {
   }
 
   public static async getByValue(value: string): Promise<RefreshToken> {
-    const query = "SELECT * from refresh_tokens WHERE value = $1";
+    const query =
+      "SELECT * from refresh_tokens WHERE value = $1 AND expires_at > NOW()";
 
     const result = await pool.query<RefreshToken>(query, [value]);
     return result.rows[0];
