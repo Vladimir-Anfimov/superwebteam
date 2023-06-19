@@ -11,6 +11,12 @@ const server = new ApolloServer({
 
     return err;
   },
+  cors: {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ["Content-Type", "Authorization"],
+    maxAge: 86400,
+  },
 });
 
 server.listen().then(({ url }) => {
