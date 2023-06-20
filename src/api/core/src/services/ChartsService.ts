@@ -8,13 +8,12 @@ import { BadRequestException } from "../exceptions/BadRequestException";
 
 export class ChartsService {
   public static async getChart(input: ChartsInput): Promise<Chart[]> {
-    if (input.counties.length == 0) 
-    {
-        throw new BadRequestException("No counties given");
+    console.log(input);
+    if (input.counties.length == 0) {
+      throw new BadRequestException("No counties given");
     }
-    if (input.criteria.length == 0) 
-    {
-        throw new BadRequestException("No criterias given");
+    if (input.criteria.length == 0) {
+      throw new BadRequestException("No criterias given");
     }
 
     if (input.counties.length == 1) {
@@ -41,7 +40,9 @@ export class ChartsService {
             input.endDate,
             input.criteria[0]
           );
-        } else console.log("not good");
+        } else {
+          throw new BadRequestException("Can't be represented as a chart");
+        }
       }
     } else {
       if (input.criteria.length == 1) {
