@@ -1,73 +1,73 @@
 /** @format */
 
-const ctx1 = document.getElementById("lineChart");
+// const ctx1 = document.getElementById("lineChart");
 
-const Type = "line";
-const Labels = [
-  "2 2022",
-  "3 2022",
-  "4 2022",
-  "5 2022",
-  "6 2022",
-  "7 2022",
-  "8 2022",
-  "9 2022",
-  "10 2022"
-];
+// const Type = "line";
+// const Labels = [
+//   "2 2022",
+//   "3 2022",
+//   "4 2022",
+//   "5 2022",
+//   "6 2022",
+//   "7 2022",
+//   "8 2022",
+//   "9 2022",
+//   "10 2022"
+// ];
 
-const Datasets = [
-  {
-    "label": "females",
-    "data": [
-      1343,
-      1332,
-      1344,
-      1206,
-      1219,
-      1225,
-      1268,
-      1232,
-      1228
-    ]
-  },
-  {
-    "label": "males",
-    "data": [
-      1326,
-      1291,
-      1298,
-      1150,
-      1082,
-      1086,
-      1110,
-      1122,
-      1120
-    ]
-  }
-];
+// const Datasets = [
+//   {
+//     "label": "females",
+//     "data": [
+//       1343,
+//       1332,
+//       1344,
+//       1206,
+//       1219,
+//       1225,
+//       1268,
+//       1232,
+//       1228
+//     ]
+//   },
+//   {
+//     "label": "males",
+//     "data": [
+//       1326,
+//       1291,
+//       1298,
+//       1150,
+//       1082,
+//       1086,
+//       1110,
+//       1122,
+//       1120
+//     ]
+//   }
+// ];
 
-new Chart(ctx1, {
-  type: Type,
-  data: {
-    labels: Labels,
-    datasets: Datasets,
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: true,
-        text: "",
-      },
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-});
+// new Chart(ctx1, {
+//   type: Type,
+//   data: {
+//     labels: Labels,
+//     datasets: Datasets,
+//   },
+//   options: {
+//     responsive: true,
+//     maintainAspectRatio: false,
+//     plugins: {
+//       title: {
+//         display: true,
+//         text: "",
+//       },
+//     },
+//     scales: {
+//       y: {
+//         beginAtZero: true,
+//       },
+//     },
+//   },
+// });
 
 /*new Chart(ctx1, {
   type: "line",
@@ -130,29 +130,29 @@ new Chart(ctx1, {
   },
 });*/
 
-const ctx3 = document.getElementById("pieChart");
+// const ctx3 = document.getElementById("pieChart");
 
-const chart3 = new Chart(ctx3, {
-  type: "pie",
-  data: {
-    labels: ["sub 25", "25-29", "30-39", "40-49", "50-55", "peste 55"],
-    datasets: [
-      {
-        label: "Numar total someri pe categorii de varsta",
-        data: [32672, 17658, 37643, 59293, 47295, 47502],
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: "Grafic pentru reprezentarea somerilor din Romania pe categoria de varsta, luna ianuarie, anul 2023",
-      },
-    },
-  },
-});
+// const chart3 = new Chart(ctx3, {
+//   type: "pie",
+//   data: {
+//     labels: ["sub 25", "25-29", "30-39", "40-49", "50-55", "peste 55"],
+//     datasets: [
+//       {
+//         label: "Numar total someri pe categorii de varsta",
+//         data: [32672, 17658, 37643, 59293, 47295, 47502],
+//       },
+//     ],
+//   },
+//   options: {
+//     responsive: true,
+//     plugins: {
+//       title: {
+//         display: true,
+//         text: "Grafic pentru reprezentarea somerilor din Romania pe categoria de varsta, luna ianuarie, anul 2023",
+//       },
+//     },
+//   },
+// });
 
 
 const containerMap = document.querySelector("#container-map");

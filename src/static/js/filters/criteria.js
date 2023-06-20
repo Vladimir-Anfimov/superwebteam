@@ -56,8 +56,6 @@ selectedCriterias.addEventListener("click", function (event) {
 
     chosen.splice(chosen.indexOf(parentDiv.id.substring(2)), 1);
 
-    console.log(chosen);
-
     parentDiv.remove();
 
     setAllEnabled(false);
@@ -92,3 +90,5 @@ const setDisabled = (optionId, compatibilityMap) => {
     }
   }
 };
+
+export {setAllEnabled, setDisabled};
