@@ -53,7 +53,6 @@ const coreRequestHandler = async (body) => {
        localStorage.setItem("token", token);
     }
 
-
     return await requestHandler(body, URLs.core, token);
 }
 
