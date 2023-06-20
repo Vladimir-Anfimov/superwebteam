@@ -132,7 +132,7 @@ new Chart(ctx1, {
 
 const ctx3 = document.getElementById("pieChart");
 
-new Chart(ctx3, {
+const chart3 = new Chart(ctx3, {
   type: "pie",
   data: {
     labels: ["sub 25", "25-29", "30-39", "40-49", "50-55", "peste 55"],
@@ -153,6 +153,7 @@ new Chart(ctx3, {
     },
   },
 });
+
 
 const containerMap = document.querySelector("#container-map");
 const containerDate = document.querySelector("#container-date");

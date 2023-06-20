@@ -8,7 +8,7 @@ const requestHandler = async (body, url, token = "") => {
             method: "POST",
             headers: {
                  "Content-Type": "application/json",
-                 "Authorization": `Bearer ${token}`
+                 "Authorization": `${token}`
                 },
             body: JSON.stringify(body),
         });
@@ -26,7 +26,7 @@ const authRequestHandler = async (query) => {
 }
 
 const coreRequestHandler = async (body) => {
-    const token = localStorage.getItem("token");
+    let token = localStorage.getItem("token");
     const refreshToken = localStorage.getItem("refreshToken");
     
     if(!token || !refreshToken) {
@@ -48,7 +48,7 @@ const coreRequestHandler = async (body) => {
           };
 
        const response = await authRequestHandler(query);
-       const token = response.data.refresh.token;
+       token = response.data.refresh.token;
         
        localStorage.setItem("token", token);
     }
