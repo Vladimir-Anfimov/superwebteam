@@ -1,4 +1,6 @@
-import { counties } from "../common/filter_data.js";
+import { chosen, counties } from "../common/filter_data.js";
+import { setAllEnabled, setDisabled } from "./criteria.js";
+import { getCompatibilityMap } from "../common/filter_data.js";
 
 const romaniaMap = document.getElementById("container-map");
 
@@ -27,6 +29,32 @@ romaniaMap.addEventListener("click", function (event) {
       selectedItems.appendChild(addedCounty);
 
       counties.push(event.target.id);
+
+      if (counties.length > 1 && chosen.length > 0) {
+        if (chosen.length == 1) {
+          setAllEnabled(true);
+        } else {
+          setAllEnabled(false);
+          chosen.splice(0, chosen.length);
+
+          const selectedCriterias = Array.from(
+            document
+              .getElementById("selected-criterias")
+              .querySelectorAll(".item")
+          );
+
+          selectedCriterias.forEach((x) => {
+            x.remove();
+          });
+        }
+      }
+
+      if (counties.length <= 1) {
+        if (chosen.length > 0) {
+          setAllEnabled(false);
+          setDisabled(chosen[0], getCompatibilityMap());
+        }
+      }
     }
   }
 });
@@ -43,5 +71,12 @@ selectedItems.addEventListener("click", function (event) {
     counties.splice(counties.indexOf(parentDiv.id.substring(1)), 1);
 
     parentDiv.remove();
+
+    if (counties.length <= 1) {
+      if (chosen.length > 0) {
+        setAllEnabled(false);
+        setDisabled(chosen[0], getCompatibilityMap());
+      }
+    }
   }
 });

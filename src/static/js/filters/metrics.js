@@ -13,10 +13,10 @@ filterButton.addEventListener("click", function (event) {
 
   message.textContent = "";
 
-  console.log(counties);
-  console.log(startDate + "-01");
-  console.log(endDate + "-01");
-  console.log(chosen.map((x) => criteria[x]));
+  // console.log(counties);
+  // console.log(startDate + "-01");
+  // console.log(endDate + "-01");
+  // console.log(chosen.map((x) => criteria[x]));
 
   if (counties.length == 0) {
     message.textContent = "Choose at least one county!";
@@ -76,11 +76,89 @@ const makeCharts = async (startDate, endDate) => {
 
   const response = await coreRequestHandler(body);
 
-  if (response.errors) {
-    document.getElementById("filter-message").textContent =
-      response.errors[0].message;
-    return;
-  } else {
-    console.log(response);
-  }
+  deleteCurrentDiagrams();
+  drawNewDiagrams(response);
 };
+
+const deleteCurrentDiagrams = () => {
+
+  const main = document.getElementById("main");
+  const chartsToDelete = Array.from(main.querySelectorAll(".chart-container"));
+
+  chartsToDelete.forEach((chart) => chart.remove());
+}
+
+const drawNewDiagrams = (response) => {
+  const data = response.data.getCharts;
+  let i = 1;
+
+  for (let chart of data)
+  {
+    constructChart(chart, "chart" + i);
+    i = i + 1;
+  }
+}
+
+const constructChart = (chart, id) => {
+  const container = document.createElement("div");
+  container.classList.add("chart-container", "content");
+
+  const canvas_container = document.createElement("div");
+  canvas_container.classList.add("canvas-container");
+
+  const canvas = document.createElement("canvas");
+  canvas.id = id;
+
+  canvas_container.appendChild(canvas);
+
+  container.appendChild(canvas_container);
+
+  const pin_container = document.createElement("div");
+  pin_container.classList.add("pin-container");
+  pin_container.id = "p" + id;
+
+  const pinImg = document.createElement("img");
+  pinImg.src = "../static/images/pin.png";
+  pinImg.alt = "pin";
+
+  const downloadImg = document.createElement("img");
+  downloadImg.src = "../static/images/downloading.png";
+  downloadImg.alt = "download";
+
+  pin_container.appendChild(pinImg);
+  pin_container.appendChild(downloadImg);
+
+  container.appendChild(pin_container);
+
+  main.appendChild(container);
+
+  useChartJsToDraw(chart, id);
+}
+
+const useChartJsToDraw = (chart, id) =>
+{
+  const ctx = document.getElementById(id);
+
+  console.log(ctx);
+
+  const options = {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: "",
+          },
+        },
+      };
+
+  new Chart(ctx, {
+    type : chart.chartType,
+    data : {
+      labels : chart.labels,
+      datasets : chart.datasets
+    },
+    options : options
+  });
+
+  console.log(chart);
+}
