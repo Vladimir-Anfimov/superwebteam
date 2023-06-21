@@ -22,9 +22,11 @@ const server = new ApolloServer({
   },
   context: async ({ req }) => {
     const token = req.headers.authorization || "";
+    console.log("TOKENUL MEU ESTE: " + token);
 
     try {
       const user = jwt.verify(token, process.env.JWT_KEY!);
+      console.log(user);
       return { user };
     } catch (e) {
       console.log("Failed to authenticate");

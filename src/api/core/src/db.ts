@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const pool = new Pool({
-  host: "amazondb.postgres.database.azure.com",
-  port: 5432,
-  user: "postgres",
-  password: "VladimirSami1234",
-  database: "web",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
   ssl: true,
 });

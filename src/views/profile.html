@@ -11,8 +11,6 @@
   </head>
 
   <body>
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
     <!-- SIDEBAR -->
     <div id="sidebar-element" class="sidebar"></div>
 
@@ -35,22 +33,7 @@
       </div>
       <div class="content">
         <h1>Sami's profile</h1>
-        <div class="container-message">
-          <h4>Your application is on the free plan</h4>
-          <p>
-            You can buy credits to get access to more data and more features.
-          </p>
-          <p>Credits left: <b>100</b>.</p>
 
-          <div>
-            <stripe-buy-button
-              metadata='{"prefilled_email": "test@test.com"}'
-              buy-button-id="buy_btn_1NL7V3CncQg2rhGESyK9Yh52"
-              publishable-key="pk_test_51NL7EGCncQg2rhGETroqXaVCO9EXlBbLlkTb1YDgkAUfgwsTsP8QHaMCPdMT1G2SgxPG9SRg4UCv2SzSQDgndIez00y8Uja58u"
-            >
-            </stripe-buy-button>
-          </div>
-        </div>
         <ul class="tabs-headers">
           <li>
             <button id="btn-tab-one" class="button button-blue">

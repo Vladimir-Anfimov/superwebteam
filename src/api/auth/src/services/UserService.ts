@@ -44,6 +44,8 @@ export class UserService {
 
     const createdUser = await UsersDao.add(user);
 
+    await RolesDao.addUserRole(createdUser.id);
+
     const refreshToken = await RefreshTokenDao.add(
       RefreshToken.create(createdUser.id)
     );
@@ -90,11 +92,17 @@ export class UserService {
   }
 
   private static async generateToken(id_user: number): Promise<string> {
-    const roles = await RolesDao.getRolesByUserId(id_user);
+    const rolesFromDb = await RolesDao.getRolesByUserId(id_user);
 
-    const token = await jwt.sign({ id: id_user, roles }, process.env.JWT_KEY!, {
-      expiresIn: process.env.JWT_EXPIRES_IN!,
-    });
+    console.log(rolesFromDb);
+
+    const token = await jwt.sign(
+      { id: id_user, roles: [...rolesFromDb] },
+      process.env.JWT_KEY!,
+      {
+        expiresIn: process.env.JWT_EXPIRES_IN!,
+      }
+    );
 
     return token;
   }
