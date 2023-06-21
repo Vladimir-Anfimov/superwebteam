@@ -30,7 +30,7 @@ const coreRequestHandler = async (body) => {
     const refreshToken = localStorage.getItem("refreshToken");
     
     if(!token || !refreshToken) {
-        window.location.replace("/superwebteam/src/views/login.html");
+        window.location.replace("/src/views/login.html");
     }
 
     if(jwt_decode(token).exp < Date.parse(new Date())) {

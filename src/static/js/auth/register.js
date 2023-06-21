@@ -47,6 +47,6 @@ const register = async () => {
     localStorage.setItem("token", token);
     localStorage.setItem("refreshToken", refreshToken);
 
-    window.location.replace("/superwebteam/src/views/index.html");
+    window.location.replace("/src/views/index.html");
   }
 };

@@ -2,6 +2,7 @@ import { counties } from "../common/filter_data.js";
 import { criteria, chosen } from "../common/filter_data.js";
 import { compatibility, getCompatibilityMap } from "../common/filter_data.js";
 import { coreRequestHandler } from "../common/requestHandler.js";
+import { pin_download } from "../common/chart_download.js";
 
 const filterButton = document.getElementById("filter-button");
 
@@ -120,10 +121,12 @@ const constructChart = (chart, id) => {
   const pinImg = document.createElement("img");
   pinImg.src = "../static/images/pin.png";
   pinImg.alt = "pin";
+  pinImg.classList.add("pin-img");
 
   const downloadImg = document.createElement("img");
   downloadImg.src = "../static/images/downloading.png";
   downloadImg.alt = "download";
+  downloadImg.classList.add("down-img");
 
   pin_container.appendChild(pinImg);
   pin_container.appendChild(downloadImg);
@@ -132,17 +135,28 @@ const constructChart = (chart, id) => {
 
   main.appendChild(container);
 
-  useChartJsToDraw(chart, id);
+  useChartJsToDraw(pin_container, chart, id);
 }
 
-const useChartJsToDraw = (chart, id) =>
+const useChartJsToDraw = (pin_container, chart, id) =>
 {
   const ctx = document.getElementById(id);
 
-  console.log(ctx);
+  //console.log(ctx);
+
+  const bgColor = {
+    id : 'bgColor',
+    beforeDraw : (chart, options) => {
+      const {ctx, width, height } = chart;
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0,0,width,height);
+      ctx.restore();
+    }
+  }
 
   const options = {
-        responsive: true,
+        // responsive: false,
+        // animation: false,
         plugins: {
           title: {
             display: true,
@@ -151,14 +165,15 @@ const useChartJsToDraw = (chart, id) =>
         },
       };
 
-  new Chart(ctx, {
+  const drawnChart = new Chart(ctx, {
     type : chart.chartType,
     data : {
       labels : chart.labels,
       datasets : chart.datasets
     },
-    options : options
+    options : options,
+    plugins : [bgColor]
   });
 
-  console.log(chart);
+  pin_container.addEventListener('click', function(event) {pin_download(event, {labels : chart.labels, datasets : chart.datasets})});
 }

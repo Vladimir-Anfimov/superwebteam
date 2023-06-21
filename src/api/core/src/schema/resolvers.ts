@@ -3,6 +3,8 @@ import { IUnemployment } from "../entities/unemployment";
 import {Chart} from "../dtos/charts/Chart";
 import {ChartsInput} from "../dtos/charts/ChartsInput";
 import {ChartsService} from "../services/ChartsService";
+import {FavouritesInputDto} from "../dtos/charts/FavouritesInputDto";
+import {FavouritesService} from "../services/FavouritesService";
 
 export const resolvers = {
   Query: {
@@ -13,4 +15,9 @@ export const resolvers = {
       return await ChartsService.getChart(input); 
     },
   },
+  Mutation: {
+    insertFavourite : async (_ : any, {input} : {input : FavouritesInputDto}) : Promise<string> => {
+      return await FavouritesService.insertFavourite(input);
+    }
+  }
 };

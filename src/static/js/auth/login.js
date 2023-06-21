@@ -44,6 +44,6 @@ const login = async () => {
 
     document.getElementById("login-message").textContent = "";
 
-    window.location.replace("/superwebteam/src/views/index.html");
+    window.location.replace("/src/views/index.html");
   }
 };

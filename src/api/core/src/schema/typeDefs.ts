@@ -35,33 +35,42 @@ export const typeDefs = gql`
     county_name: String
   }
 
+  input FavouritesInput {
+    userId: Int!
+    content: String!
+  }
+
   type Query {
     unemploymentData: [Unemployment]
-    getCharts (input : ChartsInput) : [ChartsOutput] 
+    getCharts(input: ChartsInput): [ChartsOutput]
+  }
+
+  type Mutation {
+    insertFavourite(input: FavouritesInput!): String
   }
 
   input DateTime {
-    year : Int!
-    month : Int!
+    year: Int!
+    month: Int!
   }
 
   type Dataset {
-    label : String!
-    data : [Float]
+    label: String!
+    data: [Float]
   }
 
   type ChartsOutput {
-    chartType : String!
-    labels : [String]!
-    datasets : [Dataset]!
+    chartType: String!
+    labels: [String]!
+    datasets: [Dataset]!
   }
 
   scalar Date
 
   input ChartsInput {
-    counties : [Int]!
-    startDate : Date!
-    endDate : Date!
-    criteria : [String]!
+    counties: [Int]!
+    startDate: Date!
+    endDate: Date!
+    criteria: [String]!
   }
 `;
