@@ -36,17 +36,18 @@ export const typeDefs = gql`
   }
 
   input FavouritesInput {
-    userId: Int!
     content: String!
   }
 
   type Query {
     unemploymentData: [Unemployment]
     getCharts(input: ChartsInput): [ChartsOutput]
+    getFavouriteCharts: [FavChartsOutput]
   }
 
   type Mutation {
-    insertFavourite(input: FavouritesInput!): String
+    insertFavourite(input: FavouritesInput!): Int
+    deleteFavourite(input: Int): String
   }
 
   input DateTime {
@@ -60,6 +61,13 @@ export const typeDefs = gql`
   }
 
   type ChartsOutput {
+    chartType: String!
+    labels: [String]!
+    datasets: [Dataset]!
+  }
+
+  type FavChartsOutput {
+    id : Int
     chartType: String!
     labels: [String]!
     datasets: [Dataset]!

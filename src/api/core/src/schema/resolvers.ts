@@ -1,6 +1,7 @@
 import { UnemploymentDAO } from "../daos/unemploymentDAO";
 import { IUnemployment } from "../entities/unemployment";
 import { Chart } from "../dtos/charts/Chart";
+import { FavChart } from "../dtos/charts/FavChart";
 import { ChartsInput } from "../dtos/charts/ChartsInput";
 import { ChartsService } from "../services/ChartsService";
 import { FavouritesInputDto } from "../dtos/charts/FavouritesInputDto";
@@ -24,13 +25,31 @@ export const resolvers = {
     ): Promise<Chart[]> => {
       return await ChartsService.getChart(input);
     },
+    getFavouriteCharts: async (
+      _: any,
+      __: any,
+      context: any
+    ): Promise<FavChart[]> => {
+      const userId = context.user.id;
+      return await FavouritesService.getFavourites(userId);
+    },
   },
   Mutation: {
     insertFavourite: async (
       _: any,
-      { input }: { input: FavouritesInputDto }
+      { input }: { input: FavouritesInputDto },
+      context: any
+    ): Promise<number> => {
+      const userId = context.user.id;
+      return await FavouritesService.insertFavourite(userId, input);
+    },
+    deleteFavourite: async (
+      _: any,
+      { input }: {input : number},
+      context: any
     ): Promise<string> => {
-      return await FavouritesService.insertFavourite(input);
+      const userId = context.user.id;
+      return await FavouritesService.deleteFavourite(userId, input);
     },
   },
 };

@@ -55,4 +55,6 @@ const criteria = [
 
 const chosen = [];
 
-export { counties, criteria, getCompatibilityMap, compatibility, chosen };
+let currentCharts = new Array();
+
+export { counties, criteria, getCompatibilityMap, compatibility, chosen, currentCharts };
