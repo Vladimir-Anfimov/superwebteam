@@ -222,22 +222,17 @@
 
         <!-- 6 -->
         <li>
-          <a href="#deploy">6. Mediu de productie</a>
+          <a href="#deploy">6. Arhitectura & Mediu de productie</a>
         </li>
 
         <!-- 7 -->
         <li>
-          <a href="#architecture">7. Arhitectura</a>
+          <a href="#autori"><span>7. </span>Autori</a>
         </li>
 
         <!-- 8 -->
         <li>
-          <a href="#autori"><span>8. </span>Autori</a>
-        </li>
-
-        <!-- 9 -->
-        <li>
-          <a href="#bibliografie"><span>9. </span>Bibliografie</a>
+          <a href="#bibliografie"><span>8. </span>Bibliografie</a>
         </li>
       </ol>
     </div>
@@ -463,8 +458,9 @@
         <section id="cerinte-soft-ts">
           <h4>3.2.4. TypeScript</h4>
           <p>
-            TypeScript este un limbaj care extinde functionalitatea limbajului JavaScript si va fi utilizat la nivel de backend
-            pentru a asigura robustetea codului.
+            TypeScript este un limbaj care extinde functionalitatea limbajului
+            JavaScript si va fi utilizat la nivel de backend pentru a asigura
+            robustetea codului.
           </p>
         </section>
       </section>
@@ -493,8 +489,7 @@
             clientilor sa faca cereri catre server pentru a obtine datele
             dorite. GraphQL este un limbaj declarativ, ceea ce inseamna ca
             clientul specifica ce date doreste si nu cum acestea trebuie
-            obtinute.
-            La nivel de backend se va folosi Apollo Server.
+            obtinute. La nivel de backend se va folosi Apollo Server.
           </p>
         </section>
       </section>
@@ -516,16 +511,20 @@
           datele in functie de anumite criterii.
         </p>
         <p>
-          Vizualizarea datelor se va putea face pe baza a ceea ce doreste utilizatorul sa vada. 
-          Acesta va putea alege judetele, perioada si filtrele si apoi acestea se vor fi reprezentate grafic.
-          Insa exista cazuri in care vizualizarea nu se poate face intr-un mod intuitiv si placut cum ar fi:
-          alegerea unui singur judet, a unei singure luni si a unui singur filtru sau alegerea mai multor judete si mai 
-          multor filtre deodata. Aceste cazuri nu vor putea fi filtrate.
+          Vizualizarea datelor se va putea face pe baza a ceea ce doreste
+          utilizatorul sa vada. Acesta va putea alege judetele, perioada si
+          filtrele si apoi acestea se vor fi reprezentate grafic. Insa exista
+          cazuri in care vizualizarea nu se poate face intr-un mod intuitiv si
+          placut cum ar fi: alegerea unui singur judet, a unei singure luni si a
+          unui singur filtru sau alegerea mai multor judete si mai multor filtre
+          deodata. Aceste cazuri nu vor putea fi filtrate.
         </p>
         <p>
-          Deasemenea filtrele pe care utilizatorul le alege pentru a comparatie trebuie sa aiba legatura intre ele pentru ca 
-          de exemplu nu are sens sa comparam numarul total cu rata. Sau numarul femeilor somere cu numarul somerilor cu studii universitare. 
-          Acest aspect va fi facilitat la nivel de frontend prin validarea/invalidarea optiunilor.
+          Deasemenea filtrele pe care utilizatorul le alege pentru a comparatie
+          trebuie sa aiba legatura intre ele pentru ca de exemplu nu are sens sa
+          comparam numarul total cu rata. Sau numarul femeilor somere cu numarul
+          somerilor cu studii universitare. Acest aspect va fi facilitat la
+          nivel de frontend prin validarea/invalidarea optiunilor.
         </p>
         <div>
           Urmatoarele forme de vizualizare grafica sunt disponibile
@@ -592,10 +591,12 @@
             vor putea fi comparate si care sunt compatibile din punct de vedere
             al seturilor de date disponibile sunt: barbati vs femei (numar total
             sau rata somajului), indemnizati vs neindemnizati, rural vs urban,
-            categorii de varsta, nivele de educatie, etc.
-            Cazurile in care sunt mai multe judete si mai multe filtre nu poate fi reprezentat in cele 3 moduri pe care le-am ales si nici 
-            cazul in care se alege un singur judet, o singura luna si un singur judet deoarece acest lucru ar insemna practic 
-            incercarea de reprezentare grafica a unui singur numar.
+            categorii de varsta, nivele de educatie, etc. Cazurile in care sunt
+            mai multe judete si mai multe filtre nu poate fi reprezentat in cele
+            3 moduri pe care le-am ales si nici cazul in care se alege un singur
+            judet, o singura luna si un singur judet deoarece acest lucru ar
+            insemna practic incercarea de reprezentare grafica a unui singur
+            numar.
             <img width="100%" src="./images/step_three.png" alt="filter" />
           </li>
         </ul>
@@ -673,19 +674,30 @@
 
     <!-- section 6 -->
     <section id="deploy">
-      <h2>6. Mediu de productie</h2>
-      <p></p>
+      <h2>6. Arhitectura & Mediu de productie</h2>
+      <p>Aplicatia este compusa din 5 componente principale:</p>
+      <ol>
+        <li>
+          <b>IIS Serverul</b> este un server web care ruleaza pe Windows si in
+          contextul aplicatiei noastre gazduieste fisierele statice ale Web
+          Application-ului.
+        </li>
+        <li><b>Web Application</b> este</li>
+        <li>Microserviciul Core</li>
+        <li>Microserviciul Auth</li>
+        <li>Serverul de baze de date</li>
+      </ol>
+
+      <img
+        width="100%"
+        src="./images/diagram.png"
+        alt="Diagrama arhictectura"
+      />
     </section>
 
     <!-- section 7 -->
-    <section id="architecture">
-      <h2>7. Arhictectura</h2>
-      <p></p>
-    </section>
-
-    <!-- section 8 -->
     <section id="autori">
-      <h2>8. Autori</h2>
+      <h2>7. Autori</h2>
       <ul>
         <li typeof="sa:ContributorRole" property="schema:author">
           <span typeof="schema:Person">
@@ -705,9 +717,9 @@
       </ul>
     </section>
 
-    <!-- section 9 -->
+    <!-- section 8 -->
     <section id="bibliografie">
-      <h2>9. Bibliografie</h2>
+      <h2>8. Bibliografie</h2>
 
       <dl>
         <dt id="ref-SHTML">SHTML</dt>
