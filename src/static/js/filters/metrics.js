@@ -49,7 +49,7 @@ filterButton.addEventListener("click", function (event) {
 
 const makeCharts = async (startDate, endDate) => {
   const input = {
-    counties: counties.map(x => parseInt(x)),
+    counties: counties.map((x) => parseInt(x)),
     startDate: startDate,
     endDate: endDate,
     criteria: chosen.map((x) => criteria[x]),
@@ -82,23 +82,22 @@ const makeCharts = async (startDate, endDate) => {
 };
 
 const deleteCurrentDiagrams = () => {
-
   const main = document.getElementById("main");
   const chartsToDelete = Array.from(main.querySelectorAll(".chart-container"));
 
   chartsToDelete.forEach((chart) => chart.remove());
-}
+};
 
 const drawNewDiagrams = (response) => {
+  console.log(response);
   const data = response.data.getCharts;
   let i = 1;
 
-  for (let chart of data)
-  {
+  for (let chart of data) {
     constructChart(chart, "chart" + i);
     i = i + 1;
   }
-}
+};
 
 const constructChart = (chart, id) => {
   const container = document.createElement("div");
@@ -136,44 +135,45 @@ const constructChart = (chart, id) => {
   main.appendChild(container);
 
   useChartJsToDraw(pin_container, chart, id);
-}
+};
 
-const useChartJsToDraw = (pin_container, chart, id) =>
-{
+const useChartJsToDraw = (pin_container, chart, id) => {
   const ctx = document.getElementById(id);
 
   //console.log(ctx);
 
   const bgColor = {
-    id : 'bgColor',
-    beforeDraw : (chart, options) => {
-      const {ctx, width, height } = chart;
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0,0,width,height);
+    id: "bgColor",
+    beforeDraw: (chart, options) => {
+      const { ctx, width, height } = chart;
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, width, height);
       ctx.restore();
-    }
-  }
+    },
+  };
 
   const options = {
-        // responsive: false,
-        // animation: false,
-        plugins: {
-          title: {
-            display: true,
-            text: "",
-          },
-        },
-      };
+    // responsive: false,
+    // animation: false,
+    plugins: {
+      title: {
+        display: true,
+        text: "",
+      },
+    },
+  };
 
   const drawnChart = new Chart(ctx, {
-    type : chart.chartType,
-    data : {
-      labels : chart.labels,
-      datasets : chart.datasets
+    type: chart.chartType,
+    data: {
+      labels: chart.labels,
+      datasets: chart.datasets,
     },
-    options : options,
-    plugins : [bgColor]
+    options: options,
+    plugins: [bgColor],
   });
 
-  pin_container.addEventListener('click', function(event) {pin_download(event, {labels : chart.labels, datasets : chart.datasets})});
-}
+  pin_container.addEventListener("click", function (event) {
+    pin_download(event, { labels: chart.labels, datasets: chart.datasets });
+  });
+};

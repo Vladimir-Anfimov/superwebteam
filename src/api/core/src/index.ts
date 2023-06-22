@@ -4,6 +4,8 @@ import { resolvers } from "./schema/resolvers";
 import { UnauthorisedException } from "./exceptions/UnauthorisedException";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import { UserService } from "./services/UserService";
+import { User } from "./entities/User";
 
 dotenv.config();
 
@@ -22,11 +24,14 @@ const server = new ApolloServer({
   },
   context: async ({ req }) => {
     const token = req.headers.authorization || "";
-    // console.log("TOKENUL MEU ESTE: " + token);
+
+    await UserService.updateLastTimeActive(1);
 
     try {
-      const user = jwt.verify(token, process.env.JWT_KEY!);
-      // console.log(user);
+      const user = jwt.verify(token, process.env.JWT_KEY!) as User;
+
+      await UserService.updateLastTimeActive(user.id);
+
       return { user };
     } catch (e) {
       console.log("Failed to authenticate");

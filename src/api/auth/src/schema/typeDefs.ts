@@ -9,6 +9,8 @@ export const typeDefs = gql`
     login(input: UserLoginInput!): UserLoginOutput!
     register(input: UserRegisterInput!): UserRegisterOutput!
     refresh(input: RefreshInput!): RefreshOutput!
+    updateEmail(input: UpdateEmailInput!): String!
+    updatePassword(input: UpdatePasswordInput!): String!
   }
 
   input UserLoginInput {
@@ -38,5 +40,14 @@ export const typeDefs = gql`
 
   type RefreshOutput {
     token: String!
+  }
+
+  input UpdateEmailInput {
+    newEmail: String!
+  }
+
+  input UpdatePasswordInput {
+    currentPassword: String!
+    newPassword: String!
   }
 `;

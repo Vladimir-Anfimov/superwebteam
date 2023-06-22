@@ -1,86 +1,68 @@
-import "./jwtDecoder.js";
 import { URLs } from "./urls.js";
+import "./jwtDecoder.js";
 
+export async function authTokenVerification() {
+  let token = localStorage.getItem("token");
+  const refreshToken = localStorage.getItem("refreshToken");
+
+  if (!token || !refreshToken) {
+    window.location.replace("/src/views/login.html");
+  }
+
+  if (jwt_decode(token).exp < Date.parse(new Date())) {
+    const query = {
+      query: `
+            mutation Mutation($input: RefreshInput!) {
+              refresh(input: $input) {
+                token
+              }
+            }
+          `,
+      variables: {
+        input: { refreshToken },
+      },
+    };
+
+    try {
+      const response = await authRequestHandler(query);
+      token = response.data.refresh.token;
+    } catch (error) {
+      console.log(error);
+      window.location.replace("/src/views/login.html");
+    }
+
+    localStorage.setItem("token", token);
+
+    return token;
+  }
+}
 
 const requestHandler = async (body, url, token = "") => {
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                 "Content-Type": "application/json",
-                 "Authorization": `${token}`
-                },
-            body: JSON.stringify(body),
-        });
-    
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-        alert(`Something went wrong. Please try again later.`);
-    }
-}
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${token}`,
+    },
+    body: JSON.stringify(body),
+  });
 
-const authRequestHandler = async (query) => {
-    return await requestHandler(query, URLs.auth);
-}
+  const data = await response.json();
+  return data;
+};
+
+const authRequestHandler = async (query, requiredToken = false) => {
+  let token = "";
+
+  if (requiredToken) {
+    token = await authTokenVerification();
+  }
+  return await requestHandler(query, URLs.auth, token);
+};
 
 const coreRequestHandler = async (body) => {
-    let token = localStorage.getItem("token");
-    const refreshToken = localStorage.getItem("refreshToken");
-    
-    if(!token || !refreshToken) {
-        window.location.replace("/src/views/login.html");
-    }
+  const token = await authTokenVerification();
+  return await requestHandler(body, URLs.core, token);
+};
 
-    if(jwt_decode(token).exp < Date.parse(new Date())) {
-        const query = {
-            query: `
-              mutation Mutation($input: RefreshInput!) {
-                refresh(input: $input) {
-                  token
-                }
-              }
-            `,
-            variables: {
-              input: {refreshToken}
-            },
-          };
-
-       const response = await authRequestHandler(query);
-       token = response.data.refresh.token;
-        
-       localStorage.setItem("token", token);
-    }
-
-    return await requestHandler(body, URLs.core, token);
-}
-
-export { authRequestHandler, coreRequestHandler }
-
-// const input = {
-//     counties: [2],
-//     criteria: ["females", "males"],
-//     endDate: "2022-10-01",
-//     startDate: "2022-02-01"
-//   };
-
-// const body = {
-//     query: `
-//       query Query($input: ChartsInput) {
-//         getCharts(input: $input) {
-//           chartType,
-//           labels,
-//           datasets {
-//             label,
-//             data
-//           }
-//         }
-//       }
-//     `,
-//     variables: {
-//       input,
-//     },
-//   };
-
-//   console.log(await coreRequestHandler(body));
+export { authRequestHandler, coreRequestHandler };
