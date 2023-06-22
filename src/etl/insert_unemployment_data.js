@@ -133,6 +133,8 @@ async function insertDataFromCSV() {
             rataData[i]["Rata somajului Masculina (%)"].replace(/,/g, "").trim()
           );
 
+          if(index == 41) console.log(values[index]);
+
           crt++;
         }
       }
@@ -345,12 +347,12 @@ async function insertDataFromCSV() {
           males_rural)
           VALUES (${county_id + "," + values[value].join(',')})`;
 
-      try {
+      /*try {
         const result = await client.query(insertQuery);
         console.log(`Inserted row: ${county_id}`);
       } catch (err) {
         console.error(county_id + "," + values[value].join(',') + ", Error inserting CSV data: ", err);
-      }
+      }*/
     }
   }
 
