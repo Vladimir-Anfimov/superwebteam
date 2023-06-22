@@ -5,25 +5,37 @@ import { coreRequestHandler } from "./requestHandler.js";
 const pin_download = async (event, data) => {
   const button = event.target;
   const id = button.parentNode.id.substring(1);
-  if (button.classList.contains("down-img")) {
+
+  if (button.classList.contains("down-pdf")) {
+    downloadPDF(id);
+  } else if (button.classList.contains("down-svg")) {
+    downloadSVG(id);
+  }
+  if (button.classList.contains("down-csv")) {
     downloadCSV(data);
   } else if (button.classList.contains("pin-img")) {
     const index = id.substring(5);
     //console.log(index + " pinned");
-    await pinChart(index - 1);
+    await pinChart(index - 1, button);
   } else if (button.classList.contains("unpin-img")) {
     const index = id.substring(5);
     console.log(index + " unpinned");
-    await unpinChart(event.target.parentNode.parentNode);
+    await unpinChart(event.target.parentNode.parentNode, button);
   }
 };
 
-const unpinChart = async (chartToUnpin) => {
+const unpinChart = async (chartToUnpin, button) => {
   await deleteFavoriteFromDb(parseInt(chartToUnpin.getAttribute("data-id")));
-  chartToUnpin.remove();
+  button.src = "../static/images/pin.png";
+  button.classList.remove("unpin-img");
+  button.classList.add("pin-img");
+
+  if (chartToUnpin.parentNode.id == "index-main") {
+    chartToUnpin.remove();
+  }
 };
 
-const pinChart = async (index) => {
+const pinChart = async (index, button) => {
   const chart = currentCharts[index];
 
   const iinput = {
@@ -54,9 +66,17 @@ const pinChart = async (index) => {
   if (response.errors) {
     console.log(response.errors[0].message);
   } else {
+    console.log(response.data);
     document
       .getElementById("chart" + (index + 1).toString())
-      .setAttribute("data-id", response.insertFavourite);
+      .parentNode.parentNode.setAttribute(
+        "data-id",
+        response.data.insertFavourite
+      );
+
+    button.src = "../static/images/unpin.png";
+    button.classList.remove("pin-img");
+    button.classList.add("unpin-img");
   }
 };
 
@@ -80,7 +100,7 @@ const deleteFavoriteFromDb = async (chartId) => {
   if (response.errors) {
     console.log(response.errors[0].message);
   }
-}
+};
 
 const downloadPDF = (chart_id) => {
   const chart_canvas = document.getElementById(chart_id);
@@ -131,6 +151,8 @@ const downloadSVG = (chart_id) => {
   document.body.appendChild(downloadLink);
 
   downloadLink.click();
+
+  downloadLink.remove();
 
   URL.revokeObjectURL(svgBlobURL);
 };

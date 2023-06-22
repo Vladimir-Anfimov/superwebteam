@@ -42,17 +42,29 @@ const constructChart = (chart, id) => {
   pin_container.id = "p" + id;
 
   const pinImg = document.createElement("img");
-  pinImg.src = "../static/images/pin.png";
+  pinImg.src = "../static/images/unpin.png";
   pinImg.alt = "unpin";
   pinImg.classList.add("unpin-img");
 
-  const downloadImg = document.createElement("img");
-  downloadImg.src = "../static/images/downloading.png";
-  downloadImg.alt = "download";
-  downloadImg.classList.add("down-img");
+  const downloadPdfImg = document.createElement("img");
+  downloadPdfImg.src = "../static/images/pdf.png";
+  downloadPdfImg.alt = "download-pdf";
+  downloadPdfImg.classList.add("down-pdf");
+
+  const downloadCsvImg = document.createElement("img");
+  downloadCsvImg.src = "../static/images/csv.png";
+  downloadCsvImg.alt = "download-csv";
+  downloadCsvImg.classList.add("down-csv");
+
+  const downloadSvgImg = document.createElement("img");
+  downloadSvgImg.src = "../static/images/svg.png";
+  downloadSvgImg.alt = "download-svg";
+  downloadSvgImg.classList.add("down-svg");
 
   pin_container.appendChild(pinImg);
-  pin_container.appendChild(downloadImg);
+  pin_container.appendChild(downloadPdfImg);
+  pin_container.appendChild(downloadCsvImg);
+  pin_container.appendChild(downloadSvgImg);
 
   container.appendChild(pin_container);
 
@@ -132,7 +144,7 @@ const loadFavorites = async () => {
 
   drawNewDiagrams(response);
 
-  console.log(response);
+  //console.log(response);
 };
 
 loadFavorites();
