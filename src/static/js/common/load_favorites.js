@@ -1,86 +1,6 @@
-import { counties } from "../common/filter_data.js";
-import { criteria, chosen } from "../common/filter_data.js";
-import { compatibility, getCompatibilityMap } from "../common/filter_data.js";
-import { coreRequestHandler } from "../common/requestHandler.js";
-import { pin_download } from "../common/chart_download.js";
-import { currentCharts } from "../common/filter_data.js";
-
-const filterButton = document.getElementById("filter-button");
-
-filterButton.addEventListener("click", function (event) {
-  //event.preventDefault();
-  const startDate = document.getElementById("start").value;
-  const endDate = document.getElementById("end").value;
-  const message = document.getElementById("filter-message");
-
-  message.textContent = "";
-
-  // console.log(counties);
-  // console.log(startDate + "-01");
-  // console.log(endDate + "-01");
-  // console.log(chosen.map((x) => criteria[x]));
-
-  if (counties.length == 0) {
-    message.textContent = "Choose at least one county!";
-    return;
-  }
-
-  if (chosen.length == 0) {
-    message.textContent = "Choose at least one metric!";
-    return;
-  }
-
-  if (startDate > endDate) {
-    message.textContent = "The start date given is bigger than the end date!";
-    return;
-  }
-
-  if (counties.length == 1 && endDate == startDate && chosen.length == 1) {
-    message.textContent = "Can't be represented as a chart!";
-    return;
-  }
-
-  if (counties.length > 1 && chosen.length > 1) {
-    message.textContent = "Can't be represented as a chart!";
-    return;
-  }
-
-  makeCharts(startDate + "-01", endDate + "-01");
-});
-
-const makeCharts = async (startDate, endDate) => {
-  const input = {
-    counties: counties.map((x) => parseInt(x)),
-    startDate: startDate,
-    endDate: endDate,
-    criteria: chosen.map((x) => criteria[x]),
-  };
-
-  // console.log(input);
-
-  const body = {
-    query: `
-      query GetCharts($input: ChartsInput) {
-        getCharts(input: $input) {
-          chartType,
-          labels,
-          datasets {
-            label,
-            data
-          }
-        }
-      }
-    `,
-    variables: {
-      input,
-    },
-  };
-
-  const response = await coreRequestHandler(body);
-
-  deleteCurrentDiagrams("main");
-  drawNewDiagrams(response);
-};
+import { currentCharts } from "./filter_data.js";
+import { coreRequestHandler } from "./requestHandler.js";
+import { pin_download } from "./chart_download.js";
 
 const deleteCurrentDiagrams = (main_id) => {
   const main = document.getElementById(main_id);
@@ -92,8 +12,7 @@ const deleteCurrentDiagrams = (main_id) => {
 };
 
 const drawNewDiagrams = (response) => {
-  console.log(response);
-  const data = response.data.getCharts;
+  const data = response.data.getFavouriteCharts;
   let i = 1;
 
   for (let chart of data) {
@@ -103,6 +22,8 @@ const drawNewDiagrams = (response) => {
 };
 
 const constructChart = (chart, id) => {
+  const main = document.getElementById("index-main");
+
   const container = document.createElement("div");
   container.classList.add("chart-container", "content");
 
@@ -121,9 +42,9 @@ const constructChart = (chart, id) => {
   pin_container.id = "p" + id;
 
   const pinImg = document.createElement("img");
-  pinImg.src = "../static/images/pin.png";
-  pinImg.alt = "pin";
-  pinImg.classList.add("pin-img");
+  pinImg.src = "../static/images/unpin.png";
+  pinImg.alt = "unpin";
+  pinImg.classList.add("unpin-img");
 
   const downloadPdfImg = document.createElement("img");
   downloadPdfImg.src = "../static/images/pdf.png";
@@ -146,6 +67,8 @@ const constructChart = (chart, id) => {
   pin_container.appendChild(downloadSvgImg);
 
   container.appendChild(pin_container);
+
+  container.setAttribute("data-id", chart.id);
 
   main.appendChild(container);
 
@@ -196,3 +119,32 @@ const useChartJsToDraw = (pin_container, chart, id) => {
     pin_download(event, { labels: chart.labels, datasets: chart.datasets });
   });
 };
+
+const loadFavorites = async () => {
+  deleteCurrentDiagrams("index-main");
+
+  const body = {
+    query: `
+        query Query {
+            getFavouriteCharts {
+                id
+                chartType
+                labels
+                datasets {
+                  label
+                  data
+                }
+            }
+          }
+        `,
+    variables: {},
+  };
+
+  const response = await coreRequestHandler(body);
+
+  drawNewDiagrams(response);
+
+  //console.log(response);
+};
+
+loadFavorites();

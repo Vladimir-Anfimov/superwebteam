@@ -1,12 +1,104 @@
 //import { createPngLink, createSvgLink, tweakLib } from "../common/export.js";
+import { currentCharts } from "./filter_data.js";
+import { coreRequestHandler } from "./requestHandler.js";
 
-const pin_download = (event, data) => {
+const pin_download = async (event, data) => {
   const button = event.target;
   const id = button.parentNode.id.substring(1);
-  if (button.classList.contains("down-img")) {
+
+  if (button.classList.contains("down-pdf")) {
+    downloadPDF(id);
+  } else if (button.classList.contains("down-svg")) {
+    downloadSVG(id);
+  }
+  if (button.classList.contains("down-csv")) {
     downloadCSV(data);
+  } else if (button.classList.contains("pin-img")) {
+    const index = id.substring(5);
+    //console.log(index + " pinned");
+    await pinChart(index - 1, button);
+  } else if (button.classList.contains("unpin-img")) {
+    const index = id.substring(5);
+    console.log(index + " unpinned");
+    await unpinChart(event.target.parentNode.parentNode, button);
+  }
+};
+
+const unpinChart = async (chartToUnpin, button) => {
+  await deleteFavoriteFromDb(parseInt(chartToUnpin.getAttribute("data-id")));
+  button.src = "../static/images/pin.png";
+  button.classList.remove("unpin-img");
+  button.classList.add("pin-img");
+
+  if (chartToUnpin.parentNode.id == "index-main") {
+    chartToUnpin.remove();
+  }
+};
+
+const pinChart = async (index, button) => {
+  const chart = currentCharts[index];
+
+  const iinput = {
+    chartType: chart.type,
+    labels: chart.data.labels,
+    datasets: chart.data.datasets,
+  };
+
+  //console.log(JSON.stringify(iinput));
+
+  const input = {
+    content: JSON.stringify(iinput),
+  };
+
+  const body = {
+    query: `
+    mutation Mutation($input: FavouritesInput!) {
+      insertFavourite(input: $input)
+    }
+    `,
+    variables: {
+      input,
+    },
+  };
+
+  const response = await coreRequestHandler(body);
+
+  if (response.errors) {
+    console.log(response.errors[0].message);
   } else {
-    console.log("pinned");
+    console.log(response.data);
+    document
+      .getElementById("chart" + (index + 1).toString())
+      .parentNode.parentNode.setAttribute(
+        "data-id",
+        response.data.insertFavourite
+      );
+
+    button.src = "../static/images/unpin.png";
+    button.classList.remove("pin-img");
+    button.classList.add("unpin-img");
+  }
+};
+
+const deleteFavoriteFromDb = async (chartId) => {
+  console.log(chartId);
+  const input = chartId;
+
+  const body = {
+    query: `
+    mutation Mutation($input: Int!) {
+      deleteFavourite(input: $input)
+    }
+    `,
+    variables: {
+      input,
+    },
+  };
+
+  const response = await coreRequestHandler(body);
+
+  if (response.errors) {
+    console.log(response.errors[0].message);
   }
 };
 
@@ -60,28 +152,28 @@ const downloadSVG = (chart_id) => {
 
   downloadLink.click();
 
+  downloadLink.remove();
+
   URL.revokeObjectURL(svgBlobURL);
 };
 
 const downloadCSV = (data) => {
-    console.log(data.datasets);
-    let content = "label," + data.labels.join(',') + ",";
-    let i = 0;
+  console.log(data.datasets);
+  let content = "label," + data.labels.join(",") + ",";
+  let i = 0;
 
-    while(i < data.datasets.length)
-    {
-        content = content + "\n" + data.datasets[i].label + ",";
-        for (let j = 0; j < data.datasets[i].data.length; j++)
-        {
-            content = content + data.datasets[i].data[j] + ",";
-        }
-        i++;
+  while (i < data.datasets.length) {
+    content = content + "\n" + data.datasets[i].label + ",";
+    for (let j = 0; j < data.datasets[i].data.length; j++) {
+      content = content + data.datasets[i].data[j] + ",";
     }
+    i++;
+  }
 
   const encodedUri = encodeURI(`data:text/csv;charset=utf-8,${content}`);
   const link = document.createElement("a");
   link.setAttribute("href", encodedUri);
-  link.setAttribute("download", 'chart.csv');
+  link.setAttribute("download", "chart.csv");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
