@@ -42,6 +42,8 @@ export const typeDefs = gql`
   type Query {
     unemploymentData: [Unemployment]
     getCharts(input: ChartsInput): [ChartsOutput]
+    authVerify: String
+    getUsers(input: UserPageInput): UserPageOutput
     getFavouriteCharts: [FavChartsOutput]
   }
 
@@ -80,5 +82,25 @@ export const typeDefs = gql`
     startDate: Date!
     endDate: Date!
     criteria: [String]!
+  }
+
+  input UserPageInput {
+    pageNumber: Int!
+    pageSize: Int!
+  }
+
+  type UserPageOutput {
+    users: [User]!
+    pageNumber: Int!
+    pageSize: Int!
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+  }
+
+  type User {
+    id: Int!
+    email: String!
+    last_time_active: Date!
+    created_at: Date!
   }
 `;

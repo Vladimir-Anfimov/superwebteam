@@ -92,6 +92,7 @@ const deleteCurrentDiagrams = (main_id) => {
 };
 
 const drawNewDiagrams = (response) => {
+  console.log(response);
   const data = response.data.getCharts;
   let i = 1;
 

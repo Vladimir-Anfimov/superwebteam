@@ -6,6 +6,9 @@ import { ChartsInput } from "../dtos/charts/ChartsInput";
 import { ChartsService } from "../services/ChartsService";
 import { FavouritesInputDto } from "../dtos/charts/FavouritesInputDto";
 import { FavouritesService } from "../services/FavouritesService";
+import { UserPageRequestDto } from "../dtos/admin/UserPageRequestDto";
+import { UserPageResponseDto } from "../dtos/admin/UserPageResponseDto";
+import { AdminService } from "../services/AdminService";
 
 export const resolvers = {
   Query: {
@@ -24,6 +27,19 @@ export const resolvers = {
       { input }: { input: ChartsInput }
     ): Promise<Chart[]> => {
       return await ChartsService.getChart(input);
+    },
+    authVerify: async (): Promise<string> => {
+      return "OK";
+    },
+    getUsers: async (
+      _: any,
+      { input }: { input: UserPageRequestDto },
+      context: any
+    ): Promise<UserPageResponseDto> => {
+      const user = context.user;
+      await AdminService.checkForAdminRoleOrThrowError(user);
+
+      return await AdminService.getByPage(input);
     },
     getFavouriteCharts: async (
       _: any,

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unemployment</title>
+    <link rel="stylesheet" href="../static/css/common.css" />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="../static/css/admin.css" />
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+    <div id="sidebar-element" class="sidebar"></div>
+
+    <!-- MAIN -->
+    <main>
+      <div class="navbar">
+        <img
+          id="burger-icon"
+          src="../static/images/burger.png"
+          alt="burger-menu"
+          class="mobile-burger"
+        />
+        <h3>Admin</h3>
+        <button
+          onclick="location.href = `./admin.html`"
+          class="button button-blue"
+        >
+          Admin
+        </button>
+      </div>
+      <div class="content">
+        <h1>Users</h1>
+
+        <div id="paginationControls">
+          <div>
+            <button id="previous-page-btn" disabled>Previous</button>
+            <span id="current-page">1</span>
+            <button id="next-page-btn">Next</button>
+          </div>
+          <div>
+            <label for="page-size-select">Page Size:</label>
+            <select id="page-size-select">
+              <option value="1">1</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Last time active</th>
+                <th>Created at</th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script src="../static/js/layout/layoutManager.js" type="module"></script>
+    <script src="../static/js/main.js" type="module"></script>
+    <script src="../static/js/admin/admin.js" type="module"></script>
+  </body>
+</html>
