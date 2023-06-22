@@ -168,8 +168,7 @@ const useChartJsToDraw = (pin_container, chart, id) => {
   };
 
   const options = {
-    // responsive: false,
-    // animation: false,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,

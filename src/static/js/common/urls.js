@@ -1,6 +1,6 @@
 const URLs = {
-    auth: "http://localhost:5000/graphql",
-    core: "http://localhost:4000/graphql",
-}
+  auth: "https://nodeauthwebproj.azurewebsites.net/graphql",
+  core: "https://nodecorewebapp.azurewebsites.net/",
+};
 
-export { URLs }
+export { URLs };

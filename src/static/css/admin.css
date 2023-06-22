@@ -19,7 +19,7 @@ td, th {
 }
 
 th {
-    background-color: #4caaaf;
+    background-color: var(--color-tertiary);
     color: white;
 }
 
@@ -42,7 +42,7 @@ tr:hover {
     font-size: 16px;
     border: none;
     border-radius: 4px;
-    background-color: #4ca0af;
+    background-color: var(--color-tertiary);
     color: white;
     cursor: pointer;
 }
@@ -53,7 +53,7 @@ tr:hover {
 }
 
 #paginationControls button:hover:not(:disabled) {
-    background-color: #45a095;
+    background-color: var(--color-tertiary);
 }
 
 #paginationControls #currentPage {
