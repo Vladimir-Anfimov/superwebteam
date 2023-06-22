@@ -103,11 +103,6 @@
                     ><span>2.5.1 </span> ChartJs</a
                   >
                 </li>
-                <li>
-                  <a href="#descriere-dependente-stripe"
-                    ><span>2.5.2 </span> Stripe</a
-                  >
-                </li>
               </ol>
             </li>
           </ol>
@@ -147,10 +142,7 @@
                 >
               </li>
               <li>
-                <a href="#cerinte-soft-redis"><span>3.2.3 </span>Redis</a>
-              </li>
-              <li>
-                <a href="#cerinte-soft-jwt"><span>3.2.4 </span>JWT</a>
+                <a href="#cerinte-soft-jwt"><span>3.2.3 </span>JWT</a>
               </li>
             </ol>
             <li>
@@ -196,8 +188,8 @@
               >
             </li>
             <li>
-              <a href="#functionalitati-abonament"
-                ><span>4.5 </span> Plata abonamentului</a
+              <a href="#functionalitati-admin-panel"
+                ><span>4.5 </span> Panou admin</a
               >
             </li>
             <li>
@@ -232,12 +224,22 @@
 
         <!-- 6 -->
         <li>
-          <a href="#autori"><span>6. </span>Autori</a>
+          <a href="#deploy">6. Mediu de productie</a>
         </li>
 
         <!-- 7 -->
         <li>
-          <a href="#bibliografie"><span>7. </span>Bibliografie</a>
+          <a href="#architecture">7. Arhitectura</a>
+        </li>
+
+        <!-- 8 -->
+        <li>
+          <a href="#autori"><span>8. </span>Autori</a>
+        </li>
+
+        <!-- 9 -->
+        <li>
+          <a href="#bibliografie"><span>9. </span>Bibliografie</a>
         </li>
       </ol>
     </div>
@@ -352,8 +354,8 @@
       <section id="descriere-categorii">
         <h3>2.3. Categorii si utilizatori</h3>
         <p>
-          Utilizatorii sunt impartiti in urmatoarele 3 categorii: end-user,
-          administrator si developer.
+          Utilizatorii sunt impartiti in urmatoarele 2 categorii: useri si
+          administratori.
         </p>
       </section>
 
@@ -373,16 +375,6 @@
           <p>
             Pentru vizulizarea datelor sub forma de grafice se va utiliza Chart
             JS, libaria fiind incarcata cu ajutorul unui CDN.
-          </p>
-        </section>
-        <section id="descriere-dependente-stripe">
-          <h4>2.5.2 Stripe</h4>
-          <p>
-            Stripe este un procesator de plata online ce ofera o modalitate
-            simpla și sigura de a accepta plati cu cardul, achizitionarea
-            abonamentelor și facturare. In cadrul aplicatiei este utilizat
-            pentru plata abonamentelor ce ofera acces utilizatorilor la
-            platforma UnX.
           </p>
         </section>
       </section>
@@ -467,20 +459,8 @@
         </section>
 
         <!-- section 3.2.3 -->
-        <section id="cerinte-soft-redis">
-          <h4>3.2.3. Redis</h4>
-          <p>
-            Redis este o bază de date în memorie astfel toate datele sunt
-            stocate în memorie RAM, ceea ce îi permite să ofere performanțe de
-            citire și scriere extrem de rapide. Redis este un sistem de stocare
-            cheie-valoare, ceea ce înseamnă că datele sunt stocate sub forma de
-            perechi de chei și valori.
-          </p>
-        </section>
-
-        <!-- section 3.2.4 -->
         <section id="cerinte-soft-jwt">
-          <h4>3.2.4. JWT</h4>
+          <h4>3.2.3. JWT</h4>
           <p>
             JWT (JSON Web Token) este un standard pentru autorizarea unui
             utilizator într-o aplicație web. Acesta este folosit pentru a crea
@@ -612,25 +592,23 @@
         <p>
           Utilizatorii vor putea sa isi creeze conturi pe platforma noastra
           pentru a putea salva datele legate de graficele care le sunt de
-          interes. Intrucat utilizarea platformei necesita un abonament lunar,
-          contul este de asemenea necesar pentru identificarea platilor.
-          Utilizatorii vor putea sa isi schimbe parola si datele personale in
-          orice moment prin intermediul paginii de profil.
+          interes. Utilizatorii vor putea sa isi schimbe parola si datele
+          personale in orice moment prin intermediul paginii de profil.
         </p>
 
         <img width="100%" src="./images/login.png" alt="login" />
       </section>
 
       <!-- section 4.5  -->
-      <section id="functionalitati-abonament">
-        <h3>4.5. Plata abonamentului</h3>
+      <section id="functionalitati-admin-panel">
+        <h3>4.5. Panou admin</h3>
         <p>
-          Utilizatorii vor putea sa isi plateasca abonamentul lunar prin
-          intermediul platformei noastre. Pentru a putea plati abonamentul,
-          utilizatorii trebuie sa aiba un card de credit sau de debit. Plata se
-          va face prin intermediul serviciului de plata Stripe.
+          Panoul de administrare este destinat administratorilor platformei si
+          va permite acestora vizualizarea tuturor utilizatorilor sortati dupa
+          ultima lor activitate. Afisarea se face in maniera paginata si se
+          poate alege numarul de utilizatori afisati pe pagina.
         </p>
-        <img width="100%" src="./images/abonament_plata.png" alt="payment" />
+        <img width="100%" src="./images/panou_admin.png" alt="payment" />
       </section>
 
       <!-- section 4.6  -->
@@ -664,29 +642,35 @@
           Este important ca aplicatia noastra sa fie rapida si sa nu consume
           prea multe resurse nici pe partea de client, cat nici pe partea de
           server. Astfel ne pozitionam la mijloc prin alegerea unei randari
-          partial client-side si partial server-side. Pe partea de backend este
-          utilizat Redis pentru a stoca datele in cache, astfel baza de date
-          PostgreSQL nu va fi suprasolicitata. Pentru o incarcare mai rapida a
-          paginilor se va utiliza un CDN pentru a stoca resursele statice.
+          partial client-side si partial server-side.
         </p>
       </section>
 
       <section id="alte-cerinte-securitate">
         <h3>5.3. Cerinta de securitate</h3>
         <p>
-          Pentru a asigura securitatea datelor utilizatorilor, vom folosi
-          criptarea datelor in PostgreSQL. Pentru a asigura securitatea
-          platilor, vom folosi serviciul de plata Stripe, care este unul dintre
-          cei mai siguri procesatori de plata din lume. De asemenea comunicare
-          are loc doar prin HTTPS si se va utiliza un sistem de refresh token
-          pentru a asigura securitatea sesiunilor.
+          Comunicare are loc doar prin HTTPS si se va utiliza un sistem de
+          refresh token pentru a asigura securitatea sesiunilor. Un JWT are o
+          durata de viata de 5 minute, iar un refresh token de 30 de zile.
         </p>
       </section>
     </section>
 
     <!-- section 6 -->
+    <section id="deploy">
+      <h2>6. Mediu de productie</h2>
+      <p></p>
+    </section>
+
+    <!-- section 7 -->
+    <section id="architecture">
+      <h2>7. Arhictectura</h2>
+      <p></p>
+    </section>
+
+    <!-- section 8 -->
     <section id="autori">
-      <h2>6. Autori</h2>
+      <h2>8. Autori</h2>
       <ul>
         <li typeof="sa:ContributorRole" property="schema:author">
           <span typeof="schema:Person">
@@ -706,9 +690,9 @@
       </ul>
     </section>
 
-    <!-- section 7 -->
+    <!-- section 9 -->
     <section id="bibliografie">
-      <h2>7. Bibliografie</h2>
+      <h2>9. Bibliografie</h2>
 
       <dl>
         <dt id="ref-SHTML">SHTML</dt>
@@ -763,11 +747,7 @@
           resource="https://www.chartjs.org/"
         >
           <cite property="schema:name">
-            <a
-              href="https://www.chartjs.org/"
-            >
-              Chart Js Website
-            </a>
+            <a href="https://www.chartjs.org/"> Chart Js Website </a>
           </cite>
         </dd>
       </dl>
