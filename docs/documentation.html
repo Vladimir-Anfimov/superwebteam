@@ -697,10 +697,25 @@
           contextul aplicatiei noastre gazduieste fisierele statice ale Web
           Application-ului.
         </li>
-        <li><b>Web Application</b> este</li>
-        <li>Microserviciul Core</li>
-        <li>Microserviciul Auth</li>
-        <li>Serverul de baze de date</li>
+        <li>
+          <b>Web Application</b> este un proiect compus din fisere statice
+          (HTML, CSS, JS). Acesta interactioneaza cu microserviciile de backend
+          prin intermediul apelurilor HTTPS asincrone.
+        </li>
+        <li>
+          <b>Microserviciul Core</b> este serviciul principal ce are ca rol
+          gestionarea datelor despre somaj si returnarea statisticilor. Acesta
+          este hostat pe Azure App Services.
+        </li>
+        <li>
+          <b>Microserviciul Auth</b> este responsabil de gestiuna operatiilor de
+          login, register, schimbare de email sau de parola si de refresh-ul
+          tokenilor. Acesta este hostat pe Azure App Services.
+        </li>
+        <li>
+          <b>Serverul de baze de date</b> pastreaza toate informatiile despre
+          somaj si despre useri. Acesta este hostat pe Azure.
+        </li>
       </ol>
 
       <img
