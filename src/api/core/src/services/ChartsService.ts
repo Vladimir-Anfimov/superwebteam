@@ -107,12 +107,23 @@ export class ChartsService {
         Math.round(values.reduce((a, b) => a + b) / values.length)
       );
 
-      datasets.push(new Dataset(c, values));
+      datasets.push(new Dataset(c + " from " + result[0].county_name, values));
     }
 
     return [
       new Chart("pie", pieLabels, [
-        new Dataset(result[0].county_name, pieDataset),
+        new Dataset(
+          result[0].county_name +
+            " between " +
+            new Date(startDate).toLocaleString("en-US", { month: "short" }) +
+            " " +
+            new Date(startDate).getFullYear() +
+            " and " +
+            new Date(endDate).toLocaleString("en-US", { month: "short" }) +
+            " " +
+            new Date(endDate).getFullYear(),
+          pieDataset
+        ),
       ]),
       new Chart("bar", labels, datasets),
       new Chart("line", labels, datasets),
@@ -147,7 +158,7 @@ export class ChartsService {
     );
 
     let dataset: Dataset = new Dataset(
-      result[0].county_name,
+      criteria + " from " + result[0].county_name,
       result.map((x) => getFieldValue(x, criteria))
     );
 
@@ -197,7 +208,7 @@ export class ChartsService {
 
       datasets.push(
         new Dataset(
-          result[0].county_name,
+          criteria + " from " + result[0].county_name,
           result.map((x) => getFieldValue(x, criteria))
         )
       );
@@ -213,7 +224,7 @@ export class ChartsService {
 
     return [
       new Chart("pie", piechartLabels, [
-        new Dataset("Media pe luni", pieDataset),
+        new Dataset(criteria + " average between " + new Date(startDate).toLocaleString('en-US', {month: 'short'}) + " " + new Date(startDate).getFullYear() + " and " + new Date(endDate).toLocaleString('en-US', {month: 'short'}) + " " + new Date(endDate).getFullYear(), pieDataset),
       ]),
       new Chart("bar", labels, datasets),
       new Chart("line", labels, datasets),
@@ -245,8 +256,8 @@ export class ChartsService {
     }
 
     return [
-      new Chart("pie", labels, [new Dataset(criteria, datasets)]),
-      new Chart("bar", labels, [new Dataset(criteria, datasets)]),
+      new Chart("pie", labels, [new Dataset(criteria + " on " + new Date(date).toLocaleString('en-US', {month: 'short'}) + " " + new Date(date).getFullYear(), datasets)]),
+      new Chart("bar", labels, [new Dataset(criteria + " on " + new Date(date).toLocaleString('en-US', {month: 'short'}) + " " + new Date(date).getFullYear(), datasets)]),
     ];
   }
 
@@ -288,12 +299,19 @@ export class ChartsService {
         Math.round(values.reduce((a, b) => a + b) / values.length)
       );
 
-      datasets.push(new Dataset(c, values));
+      datasets.push(new Dataset(c + " from " + result[0].county_name, values));
     }
 
     return [
       new Chart("pie", pieLabels, [
-        new Dataset(result[0].county_name, pieDataset),
+        new Dataset(
+          result[0].county_name +
+            " on " +
+            new Date(date).toLocaleString("en-US", { month: "short" }) +
+            " " +
+            new Date(date).getFullYear(),
+          pieDataset
+        ),
       ]),
       new Chart("bar", labels, datasets),
     ];
